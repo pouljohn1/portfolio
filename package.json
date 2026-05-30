@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc -b && vite build",
     "dev": "vite",
+    "postbuild": "mkdir -p dist/lighter-support && cp dist/index.html dist/lighter-support/index.html",
     "preview": "vite preview",
     "start": "vite preview --host 0.0.0.0"
   },
