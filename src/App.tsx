@@ -199,10 +199,26 @@ function LighterSupportPage() {
 
           <section id="policy">
             <h2 className="mb-4 text-xl font-light text-foreground">Privacy Policy</h2>
-            <p>
-              Lighter does not collect, store, or share any personal data. The app operates entirely on-device and does
-              not use any analytics or tracking tools.
-            </p>
+            <div className="space-y-4">
+              <p>
+                Lighter uses Firebase Analytics to understand aggregate feature usage and Firebase Crashlytics to
+                diagnose crashes and recoverable errors. Firebase may process device, app, usage, and diagnostic
+                information as described in{" "}
+                <a
+                  href="https://firebase.google.com/support/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground underline underline-offset-4 hover:no-underline"
+                >
+                  Google's privacy documentation
+                </a>
+                .
+              </p>
+              <p>
+                Lighter does not send imported images, creator names, theme names, or CloudKit record identifiers to
+                these services. It does not use advertising identifiers or cross-app tracking.
+              </p>
+            </div>
           </section>
 
           <section>
