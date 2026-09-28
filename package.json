@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc -b && vite build",
     "dev": "vite",
-    "postbuild": "mkdir -p dist/lighter-support && cp dist/index.html dist/lighter-support/index.html",
+    "postbuild": "mkdir -p dist/lighter-support dist/familijna-gra-support && cp dist/index.html dist/lighter-support/index.html && cp dist/index.html dist/familijna-gra-support/index.html",
     "preview": "vite preview",
     "start": "vite preview --host 0.0.0.0"
   },

@@ -8,6 +8,10 @@ export function App() {
     return <LighterSupportPage />
   }
 
+  if (path.startsWith("/familijna-gra-support")) {
+    return <FamilijnaGraSupportPage />
+  }
+
   return <HomePage />
 }
 
@@ -59,6 +63,11 @@ function HomePage() {
               href="https://apps.apple.com/us/app/lighter-simulator/id6758013623"
               title="Lighter Simulator"
               description="iPhone app with realistic lighter simulation, themes, gestures and sounds."
+            />
+            <PortfolioLink
+              href="/familijna-gra-support"
+              title="Familijna Gra"
+              description="Polska gra quizowa na iPhone'a. Wsparcie i polityka prywatności."
             />
           </div>
         </section>
@@ -227,6 +236,106 @@ function LighterSupportPage() {
               <li>iOS 16.0 or later</li>
               <li>iPhone (Real device required for motion-sensing physics)</li>
             </ul>
+          </section>
+        </div>
+      </div>
+    </PageShell>
+  )
+}
+
+function FamilijnaGraSupportPage() {
+  return (
+    <PageShell>
+      <div className="mx-auto max-w-2xl px-6 py-20 md:py-32">
+        <a
+          href="/"
+          className="mb-12 inline-flex items-center gap-2 text-muted-foreground/70 transition-colors hover:text-foreground"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          <span className="text-sm">Portfolio</span>
+        </a>
+
+        <h1 className="mb-4 text-4xl font-extralight tracking-tight text-foreground md:text-5xl">
+          Familijna Gra
+        </h1>
+        <p className="mb-12 text-lg leading-relaxed text-muted-foreground/90">
+          Wsparcie i polityka prywatności aplikacji na iPhone'a.
+        </p>
+
+        <div className="space-y-12 leading-relaxed text-muted-foreground/90">
+          <section>
+            <h2 className="mb-4 text-xl font-light text-foreground">Kontakt</h2>
+            <p>
+              Jeśli masz problem z grą lub pytanie dotyczące danych, napisz na{" "}
+              <a href="mailto:pjanecze@gmail.com" className="text-foreground underline underline-offset-4 hover:no-underline">
+                pjanecze@gmail.com
+              </a>
+              .
+            </p>
+          </section>
+
+          <section id="policy" className="scroll-mt-8">
+            <h2 className="mb-2 text-2xl font-light text-foreground">Polityka prywatności</h2>
+            <p className="mb-8 text-sm text-muted-foreground/70">Ostatnia aktualizacja: 28 września 2026 r.</p>
+            <div className="space-y-8">
+              <div>
+                <h3 className="mb-3 text-lg font-light text-foreground">Kto odpowiada za aplikację</h3>
+                <p>
+                  Za aplikację Familijna Gra odpowiada Paweł Janeczek. W sprawach prywatności skontaktujesz się ze mną
+                  pod adresem <a href="mailto:pjanecze@gmail.com" className="text-foreground underline underline-offset-4 hover:no-underline">pjanecze@gmail.com</a>.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="mb-3 text-lg font-light text-foreground">Dane potrzebne do gry</h3>
+                <p>
+                  Podana nazwa rodziny jest zapisywana lokalnie na urządzeniu. Jeśli korzystasz z iCloud, aplikacja
+                  zapisuje profil w CloudKit i rezerwuje nazwę w publicznej bazie, aby nie mogła jej wybrać inna rodzina.
+                  Nazwa może być widoczna innym graczom. Game Center firmy Apple służy do logowania gracza,
+                  wyszukiwania przeciwnika i przesyłania danych trwającego meczu.
+                </p>
+                <p className="mt-3">
+                  Wyniki zakończonych meczów zapisujemy w lokalnej kolejce, gdy synchronizacja jest niedostępna.
+                  Szczegół meczu trafia do prywatnej bazy CloudKit danego gracza. W meczu online host zapisuje także
+                  publiczne podsumowanie zawierające nazwy rodzin, datę i wynik. Nie zawiera ono wpisywanych odpowiedzi
+                  ani identyfikatorów kont Game Center lub iCloud. Wpisywane odpowiedzi są przekazywane rywalowi
+                  podczas meczu, lecz nie zapisujemy ich w historii CloudKit.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="mb-3 text-lg font-light text-foreground">Analityka i diagnostyka</h3>
+                <p>
+                  Korzystamy z Firebase Analytics, aby rozumieć użycie ekranów i działania gry, oraz z Firebase
+                  Crashlytics, aby diagnozować awarie i błędy. Usługi te mogą przetwarzać identyfikator instalacji,
+                  informacje o urządzeniu, systemie i aplikacji, zdarzenia użycia oraz dane diagnostyczne. Do Firebase
+                  nie wysyłamy wpisywanych odpowiedzi, nazw rodzin ani identyfikatorów graczy. Nie używamy
+                  identyfikatora reklamowego ani danych do śledzenia między aplikacjami.
+                </p>
+                <p className="mt-3">
+                  Więcej o przetwarzaniu danych przez Firebase znajdziesz w{" "}
+                  <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer" className="text-foreground underline underline-offset-4 hover:no-underline">
+                    dokumentacji Google
+                  </a>.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="mb-3 text-lg font-light text-foreground">Przechowywanie i Twoje wybory</h3>
+                <p>
+                  Dane profilu i wyników przechowujemy na potrzeby działania gry i historii meczów. Dane lokalne
+                  możesz usunąć, odinstalowując aplikację; dane zapisane w CloudKit mogą pozostać po odinstalowaniu.
+                  Jeśli chcesz uzyskać informacje o swoich danych, poprawić je lub poprosić o ich usunięcie, napisz na{" "}
+                  <a href="mailto:pjanecze@gmail.com" className="text-foreground underline underline-offset-4 hover:no-underline">pjanecze@gmail.com</a>.
+                  Dane kont i usługi Game Center oraz iCloud są zarządzane także przez Apple w ustawieniach Twojego konta.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="mb-3 text-lg font-light text-foreground">Zmiany polityki</h3>
+                <p>Gdy zmieni się sposób działania aplikacji lub przetwarzania danych, zaktualizujemy tę stronę i datę powyżej.</p>
+              </div>
+            </div>
           </section>
         </div>
       </div>
