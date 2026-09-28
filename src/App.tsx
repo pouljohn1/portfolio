@@ -67,7 +67,7 @@ function HomePage() {
             <PortfolioLink
               href="/familijna-gra-support"
               title="Familijna Gra"
-              description="Polska gra quizowa na iPhone'a. Wsparcie i polityka prywatności."
+              description="A Polish family quiz game for iPhone. Support and privacy policy."
             />
           </div>
         </section>
