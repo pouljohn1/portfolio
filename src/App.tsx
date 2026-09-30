@@ -1,344 +1,259 @@
-import type React from "react"
-import { ArrowLeft, Linkedin, Twitter } from "lucide-react"
+import { useEffect, type ReactNode } from "react"
+import { ArrowLeft, Linkedin, Monitor, Moon, Sun, Twitter } from "lucide-react"
+import { useTheme } from "next-themes"
+
+import { Button } from "@/components/ui/button"
+import { content, type Locale } from "./content"
+
+type Page = "home" | "lighter" | "family"
+
+function currentPage(pathname: string): Page {
+  const path = pathname.replace(/^\/(en|pl)(?=\/|$)/, "").replace(/\/$/, "")
+  if (path === "/lighter-support") return "lighter"
+  if (path === "/familijna-gra-support") return "family"
+  return "home"
+}
+
+function currentLocale(pathname: string): Locale {
+  const match = pathname.match(/^\/(en|pl)(?=\/|$)/)
+  if (match) return match[1] as Locale
+  return navigator.language.toLowerCase().startsWith("pl") ? "pl" : "en"
+}
+
+function localizedPath(locale: Locale, page: Page) {
+  const suffix = page === "lighter" ? "/lighter-support" : page === "family" ? "/familijna-gra-support" : ""
+  return `/${locale}${suffix}`
+}
 
 export function App() {
-  const path = window.location.pathname
+  const page = currentPage(window.location.pathname)
+  const locale = currentLocale(window.location.pathname)
+  const t = content[locale]
 
-  if (path.startsWith("/lighter-support")) {
-    return <LighterSupportPage />
-  }
+  useEffect(() => {
+    document.documentElement.lang = locale
+    document.title = `${page === "home" ? "Paweł Janeczek" : t[page].title} — Portfolio`
+    document.querySelector('meta[name="description"]')?.setAttribute("content", t.meta[page])
+  }, [locale, page, t])
 
-  if (path.startsWith("/familijna-gra-support")) {
-    return <FamilijnaGraSupportPage />
-  }
-
-  return <HomePage />
-}
-
-function PageShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="dark">
-      <main className="min-h-screen bg-background text-foreground">{children}</main>
-    </div>
-  )
-}
-
-function HomePage() {
-  return (
-    <PageShell>
-      <div className="mx-auto max-w-2xl px-6 py-20 md:py-32">
-        <section className="mb-24">
-          <div className="mb-10 flex justify-center">
-            <div className="relative h-48 w-48 overflow-hidden rounded-full ring-1 ring-muted/20">
-              <img
-                src="/images/awatar2-20-281-29.jpg"
-                alt="Pawel Janeczek"
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </div>
-          <h1 className="mb-6 text-center text-5xl font-extralight tracking-tight text-foreground md:text-6xl">
-            Hey, I'm Pawel
-          </h1>
-          <p className="mx-auto max-w-xl text-center text-base leading-relaxed text-muted-foreground/90">
-            I build stuff for the web. Currently working on frontend at Inter Cars and building side projects like
-            Domalert and Poliswar. Been coding for over a decade and love turning ideas into real products.
-          </p>
-        </section>
-
-        <section className="mb-24">
-          <h2 className="mb-10 text-xl font-extralight tracking-wide text-muted-foreground/60">Projects</h2>
-          <div className="space-y-4">
-            <PortfolioLink
-              href="https://domalert.pl"
-              title="domalert.pl"
-              description="Finding and getting notified about best deals on the apartments market."
-            />
-            <PortfolioLink
-              href="https://poliswar.xyz"
-              title="poliswar.xyz"
-              description="A vibe coded strategic multiplayer game for fun."
-            />
-            <PortfolioLink
-              href="https://apps.apple.com/us/app/lighter-simulator/id6758013623"
-              title="Lighter Simulator"
-              description="iPhone app with realistic lighter simulation, themes, gestures and sounds."
-            />
-            <PortfolioLink
-              href="/familijna-gra-support"
-              title="Familijna Gra"
-              description="A Polish family quiz game for iPhone. Support and privacy policy."
-            />
-          </div>
-        </section>
-
-        <section className="mb-24">
-          <h2 className="mb-10 text-xl font-extralight tracking-wide text-muted-foreground/60">Work</h2>
-          <div className="space-y-4">
-            <PortfolioLink
-              href="https://intercars.eu"
-              title="intercars.eu"
-              description="Frontend development for Europe's leading auto parts distributor."
-            />
-            <PortfolioLink
-              href="https://hacklab.so"
-              title="hacklab.so"
-              label="prev"
-              description="Learning platform that helps people to gain new experiences."
-            />
-          </div>
-        </section>
-
-        <section>
-          <h2 className="mb-10 text-xl font-extralight tracking-wide text-muted-foreground/60">Connect</h2>
-          <div className="flex gap-8">
-            <SocialLink href="https://www.linkedin.com/in/pjaneczek/" label="LinkedIn" icon={<Linkedin className="h-5 w-5" />} />
-            <SocialLink href="https://x.com/paweljaneczek" label="X" icon={<Twitter className="h-5 w-5" />} />
-          </div>
-        </section>
-      </div>
+    <PageShell locale={locale} page={page}>
+      {page === "lighter" ? <LighterSupportPage locale={locale} /> : page === "family" ? <FamilySupportPage locale={locale} /> : <HomePage locale={locale} />}
     </PageShell>
   )
 }
 
-function PortfolioLink({
-  href,
-  title,
-  description,
-  label,
-}: {
-  href: string
-  title: string
-  description: string
-  label?: string
-}) {
+function PageShell({ children, locale, page }: { children: ReactNode; locale: Locale; page: Page }) {
+  const t = content[locale].controls
+
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="block border-l border-muted/30 py-2 pl-6 transition-all hover:border-foreground/60 hover:pl-8"
-    >
+    <div className="min-h-screen bg-background text-foreground">
+      <header className="mx-auto flex max-w-2xl flex-wrap items-center justify-end gap-3 px-6 pt-6">
+        <nav aria-label={t.language} className="flex items-center rounded-md border border-border p-0.5">
+          {(["en", "pl"] as const).map((option) => (
+            <Button key={option} asChild variant={locale === option ? "secondary" : "ghost"} size="sm" className="h-8 min-w-11 px-2">
+              <a href={`${localizedPath(option, page)}${window.location.hash}`} lang={option} aria-current={locale === option ? "page" : undefined}>
+                {option.toUpperCase()}
+              </a>
+            </Button>
+          ))}
+        </nav>
+        <ThemeControls locale={locale} />
+      </header>
+      <main>{children}</main>
+    </div>
+  )
+}
+
+function ThemeControls({ locale }: { locale: Locale }) {
+  const { theme, setTheme } = useTheme()
+  const labels = content[locale].controls
+  const options = [
+    { value: "system", label: labels.system, icon: Monitor },
+    { value: "light", label: labels.light, icon: Sun },
+    { value: "dark", label: labels.dark, icon: Moon },
+  ]
+
+  return (
+    <div role="group" aria-label={labels.appearance} className="flex items-center rounded-md border border-border p-0.5">
+      {options.map(({ value, label, icon: Icon }) => (
+        <Button
+          key={value}
+          type="button"
+          variant={(theme ?? "system") === value ? "secondary" : "ghost"}
+          size="sm"
+          className="h-8 gap-1.5 px-2 text-xs sm:text-sm"
+          aria-pressed={(theme ?? "system") === value}
+          onClick={() => setTheme(value)}
+        >
+          <Icon className="size-4" aria-hidden="true" />
+          <span>{label}</span>
+        </Button>
+      ))}
+    </div>
+  )
+}
+
+function HomePage({ locale }: { locale: Locale }) {
+  const t = content[locale].home
+
+  return (
+    <div className="mx-auto max-w-2xl px-6 pb-20 pt-14 md:pb-32 md:pt-20">
+      <section className="mb-24">
+        <div className="mb-10 flex justify-center">
+          <div className="relative h-48 w-48 overflow-hidden rounded-full ring-1 ring-border">
+            <img src="/images/awatar2-20-281-29.jpg" alt="Paweł Janeczek" className="h-full w-full object-cover" />
+          </div>
+        </div>
+        <h1 className="mb-6 text-center text-5xl font-extralight tracking-tight text-foreground md:text-6xl">{t.greeting}</h1>
+        <p className="mx-auto max-w-xl text-center text-base leading-relaxed text-muted-foreground">{t.introduction}</p>
+      </section>
+
+      <section className="mb-24">
+        <h2 className="mb-10 text-xl font-extralight tracking-wide text-muted-foreground">{t.projects}</h2>
+        <div className="space-y-4">
+          <PortfolioLink href="https://domalert.pl" title="domalert.pl" description={t.domalert} />
+          <PortfolioLink href="https://poliswar.xyz" title="poliswar.xyz" description={t.poliswar} />
+          <PortfolioLink href="https://apps.apple.com/us/app/lighter-simulator/id6758013623" title="Lighter Simulator" description={t.lighter} />
+          <PortfolioLink href={localizedPath(locale, "family")} title="Familijna Gra" description={t.family} />
+        </div>
+      </section>
+
+      <section className="mb-24">
+        <h2 className="mb-10 text-xl font-extralight tracking-wide text-muted-foreground">{t.work}</h2>
+        <div className="space-y-4">
+          <PortfolioLink href="https://intercars.eu" title="intercars.eu" description={t.intercars} />
+          <PortfolioLink href="https://hacklab.so" title="hacklab.so" label={t.previous} description={t.hacklab} />
+        </div>
+      </section>
+
+      <section>
+        <h2 className="mb-10 text-xl font-extralight tracking-wide text-muted-foreground">{t.connect}</h2>
+        <div className="flex gap-8">
+          <SocialLink href="https://www.linkedin.com/in/pjaneczek/" label="LinkedIn" icon={<Linkedin className="h-5 w-5" />} />
+          <SocialLink href="https://x.com/paweljaneczek" label="X" icon={<Twitter className="h-5 w-5" />} />
+        </div>
+      </section>
+    </div>
+  )
+}
+
+function PortfolioLink({ href, title, description, label }: { href: string; title: string; description: string; label?: string }) {
+  const external = href.startsWith("http")
+  return (
+    <a href={href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined} className="block border-l border-border py-2 pl-6 transition-all hover:border-foreground/60 hover:pl-8">
       <h3 className="text-lg font-light text-foreground">
         {title}
-        {label ? <span className="ml-2 text-xs font-normal text-muted-foreground/40">{label}</span> : null}
+        {label ? <span className="ml-2 text-sm font-normal text-muted-foreground">{label}</span> : null}
       </h3>
-      <p className="mt-1 text-sm text-muted-foreground/60">{description}</p>
+      <p className="mt-1 text-sm text-muted-foreground">{description}</p>
     </a>
   )
 }
 
-function SocialLink({ href, label, icon }: { href: string; label: string; icon: React.ReactNode }) {
+function SocialLink({ href, label, icon }: { href: string; label: string; icon: ReactNode }) {
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center gap-2 text-muted-foreground/70 transition-all hover:gap-3 hover:text-foreground"
-    >
+    <a href={href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground transition-all hover:gap-3 hover:text-foreground">
       {icon}
       <span className="text-sm">{label}</span>
     </a>
   )
 }
 
-function LighterSupportPage() {
+function SupportLayout({ locale, children }: { locale: Locale; children: ReactNode }) {
   return (
-    <PageShell>
-      <div className="mx-auto max-w-2xl px-6 py-20 md:py-32">
-        <a
-          href="/"
-          className="mb-12 inline-flex items-center gap-2 text-muted-foreground/70 transition-colors hover:text-foreground"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          <span className="text-sm">Back</span>
-        </a>
-
-        <h1 className="mb-8 text-4xl font-extralight tracking-tight text-foreground md:text-5xl">Lighter Support</h1>
-
-        <div className="space-y-12 leading-relaxed text-muted-foreground/90">
-          <section>
-            <h2 className="mb-4 text-xl font-light text-foreground">About the App</h2>
-            <p>
-              Lighter is a premium, realistic virtual simulator for iPhone built with SwiftUI and CoreMotion. Experience
-              the art of fire with authentic physics-based flame movement, a variety of elegant themes, and intuitive
-              gesture controls that make it feel like a real lighter in your hand.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="mb-4 text-xl font-light text-foreground">Key Features</h2>
-            <ul className="list-inside list-disc space-y-2">
-              <li>
-                <strong>Interactive Flame Physics:</strong> The flame reacts to your device's tilt and movement in
-                real-time.
-              </li>
-              <li>
-                <strong>Lighter Collection:</strong> Choose from premium themes including Classic Silver, Gold Plated,
-                Magma Style, and Antique Brass.
-              </li>
-              <li>
-                <strong>Authentic Experience:</strong> High-quality sound effects and realistic flint wheel mechanical
-                animations.
-              </li>
-              <li>
-                <strong>Flashlight Integration:</strong> The device flashlight synchronizes with the flame state for an
-                immersive effect.
-              </li>
-              <li>
-                <strong>Intuitive Gestures:</strong> Swipe to open the lid, strike the flint wheel to ignite, and tap or
-                close to extinguish.
-              </li>
-              <li>
-                <strong>Works Offline:</strong> Enjoy the full experience without any internet connection.
-              </li>
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="mb-4 text-xl font-light text-foreground">Contact Support</h2>
-            <p className="mb-4">Having issues with the app or have suggestions for new themes? I'd love to hear from you.</p>
-            <p>
-              Email:{" "}
-              <a href="mailto:pjanecze@gmail.com" className="text-foreground underline underline-offset-4 hover:no-underline">
-                pjanecze@gmail.com
-              </a>
-            </p>
-          </section>
-
-          <section id="policy">
-            <h2 className="mb-4 text-xl font-light text-foreground">Privacy Policy</h2>
-            <div className="space-y-4">
-              <p>
-                Lighter uses Firebase Analytics to understand aggregate feature usage and Firebase Crashlytics to
-                diagnose crashes and recoverable errors. Firebase may process device, app, usage, and diagnostic
-                information as described in{" "}
-                <a
-                  href="https://firebase.google.com/support/privacy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-foreground underline underline-offset-4 hover:no-underline"
-                >
-                  Google's privacy documentation
-                </a>
-                .
-              </p>
-              <p>
-                Lighter does not send imported images, creator names, theme names, or CloudKit record identifiers to
-                these services. It does not use advertising identifiers or cross-app tracking.
-              </p>
-            </div>
-          </section>
-
-          <section>
-            <h2 className="mb-4 text-xl font-light text-foreground">Requirements</h2>
-            <ul className="list-inside list-disc space-y-2">
-              <li>iOS 16.0 or later</li>
-              <li>iPhone (Real device required for motion-sensing physics)</li>
-            </ul>
-          </section>
-        </div>
-      </div>
-    </PageShell>
+    <div className="mx-auto max-w-2xl px-6 pb-20 pt-14 md:pb-32 md:pt-20">
+      <Button asChild variant="ghost" className="-ml-3 mb-8 text-muted-foreground">
+        <a href={localizedPath(locale, "home")}><ArrowLeft className="size-4" aria-hidden="true" />{content[locale].controls.back}</a>
+      </Button>
+      <div className="space-y-12 leading-relaxed text-muted-foreground">{children}</div>
+    </div>
   )
 }
 
-function FamilijnaGraSupportPage() {
+function MailLink() {
+  return <a href="mailto:pjanecze@gmail.com" className="text-foreground underline underline-offset-4 hover:no-underline">pjanecze@gmail.com</a>
+}
+
+function GooglePrivacyLink({ children }: { children: ReactNode }) {
+  return <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer" className="text-foreground underline underline-offset-4 hover:no-underline">{children}</a>
+}
+
+function LighterSupportPage({ locale }: { locale: Locale }) {
+  const t = content[locale].lighter
   return (
-    <PageShell>
-      <div className="mx-auto max-w-2xl px-6 py-20 md:py-32">
-        <a
-          href="/"
-          className="mb-12 inline-flex items-center gap-2 text-muted-foreground/70 transition-colors hover:text-foreground"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          <span className="text-sm">Portfolio</span>
-        </a>
-
-        <h1 className="mb-4 text-4xl font-extralight tracking-tight text-foreground md:text-5xl">
-          Familijna Gra
-        </h1>
-        <p className="mb-12 text-lg leading-relaxed text-muted-foreground/90">
-          Wsparcie i polityka prywatności aplikacji na iPhone'a.
-        </p>
-
-        <div className="space-y-12 leading-relaxed text-muted-foreground/90">
-          <section>
-            <h2 className="mb-4 text-xl font-light text-foreground">Kontakt</h2>
-            <p>
-              Jeśli masz problem z grą lub pytanie dotyczące danych, napisz na{" "}
-              <a href="mailto:pjanecze@gmail.com" className="text-foreground underline underline-offset-4 hover:no-underline">
-                pjanecze@gmail.com
-              </a>
-              .
-            </p>
-          </section>
-
-          <section id="policy" className="scroll-mt-8">
-            <h2 className="mb-2 text-2xl font-light text-foreground">Polityka prywatności</h2>
-            <p className="mb-8 text-sm text-muted-foreground/70">Ostatnia aktualizacja: 28 września 2026 r.</p>
-            <div className="space-y-8">
-              <div>
-                <h3 className="mb-3 text-lg font-light text-foreground">Kto odpowiada za aplikację</h3>
-                <p>
-                  Za aplikację Familijna Gra odpowiada Paweł Janeczek. W sprawach prywatności skontaktujesz się ze mną
-                  pod adresem <a href="mailto:pjanecze@gmail.com" className="text-foreground underline underline-offset-4 hover:no-underline">pjanecze@gmail.com</a>.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="mb-3 text-lg font-light text-foreground">Dane potrzebne do gry</h3>
-                <p>
-                  Podana nazwa rodziny jest zapisywana lokalnie na urządzeniu. Jeśli korzystasz z iCloud, aplikacja
-                  zapisuje profil w CloudKit i rezerwuje nazwę w publicznej bazie, aby nie mogła jej wybrać inna rodzina.
-                  Nazwa może być widoczna innym graczom. Game Center firmy Apple służy do logowania gracza,
-                  wyszukiwania przeciwnika i przesyłania danych trwającego meczu.
-                </p>
-                <p className="mt-3">
-                  Wyniki zakończonych meczów zapisujemy w lokalnej kolejce, gdy synchronizacja jest niedostępna.
-                  Szczegół meczu trafia do prywatnej bazy CloudKit danego gracza. W meczu online host zapisuje także
-                  publiczne podsumowanie zawierające nazwy rodzin, datę i wynik. Nie zawiera ono wpisywanych odpowiedzi
-                  ani identyfikatorów kont Game Center lub iCloud. Wpisywane odpowiedzi są przekazywane rywalowi
-                  podczas meczu, lecz nie zapisujemy ich w historii CloudKit.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="mb-3 text-lg font-light text-foreground">Analityka i diagnostyka</h3>
-                <p>
-                  Korzystamy z Firebase Analytics, aby rozumieć użycie ekranów i działania gry, oraz z Firebase
-                  Crashlytics, aby diagnozować awarie i błędy. Usługi te mogą przetwarzać identyfikator instalacji,
-                  informacje o urządzeniu, systemie i aplikacji, zdarzenia użycia oraz dane diagnostyczne. Do Firebase
-                  nie wysyłamy wpisywanych odpowiedzi, nazw rodzin ani identyfikatorów graczy. Nie używamy
-                  identyfikatora reklamowego ani danych do śledzenia między aplikacjami.
-                </p>
-                <p className="mt-3">
-                  Więcej o przetwarzaniu danych przez Firebase znajdziesz w{" "}
-                  <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer" className="text-foreground underline underline-offset-4 hover:no-underline">
-                    dokumentacji Google
-                  </a>.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="mb-3 text-lg font-light text-foreground">Przechowywanie i Twoje wybory</h3>
-                <p>
-                  Dane profilu i wyników przechowujemy na potrzeby działania gry i historii meczów. Dane lokalne
-                  możesz usunąć, odinstalowując aplikację; dane zapisane w CloudKit mogą pozostać po odinstalowaniu.
-                  Jeśli chcesz uzyskać informacje o swoich danych, poprawić je lub poprosić o ich usunięcie, napisz na{" "}
-                  <a href="mailto:pjanecze@gmail.com" className="text-foreground underline underline-offset-4 hover:no-underline">pjanecze@gmail.com</a>.
-                  Dane kont i usługi Game Center oraz iCloud są zarządzane także przez Apple w ustawieniach Twojego konta.
-                </p>
-              </div>
-
-              <div>
-                <h3 className="mb-3 text-lg font-light text-foreground">Zmiany polityki</h3>
-                <p>Gdy zmieni się sposób działania aplikacji lub przetwarzania danych, zaktualizujemy tę stronę i datę powyżej.</p>
-              </div>
-            </div>
-          </section>
+    <SupportLayout locale={locale}>
+      <h1 className="text-4xl font-extralight tracking-tight text-foreground md:text-5xl">{t.title}</h1>
+      <section>
+        <h2 className="mb-4 text-xl font-light text-foreground">{t.aboutTitle}</h2>
+        <p>{t.about}</p>
+      </section>
+      <section>
+        <h2 className="mb-4 text-xl font-light text-foreground">{t.featuresTitle}</h2>
+        <ul className="list-outside list-disc space-y-2 pl-5">
+          {t.features.map(([title, description]) => <li key={title}><strong>{title}:</strong> {description}</li>)}
+        </ul>
+      </section>
+      <section>
+        <h2 className="mb-4 text-xl font-light text-foreground">{t.contactTitle}</h2>
+        <p className="mb-4">{t.contact}</p>
+        <p>{t.email}: <MailLink /></p>
+      </section>
+      <section id="policy" className="scroll-mt-8">
+        <h2 className="mb-4 text-xl font-light text-foreground">{t.privacyTitle}</h2>
+        <div className="space-y-4">
+          <p>{t.privacyBeforeLink}<GooglePrivacyLink>{t.privacyLink}</GooglePrivacyLink>{t.privacyAfterLink}</p>
+          <p>{t.privacyLimits}</p>
         </div>
+      </section>
+      <section>
+        <h2 className="mb-4 text-xl font-light text-foreground">{t.requirementsTitle}</h2>
+        <ul className="list-outside list-disc space-y-2 pl-5">{t.requirements.map((item) => <li key={item}>{item}</li>)}</ul>
+      </section>
+    </SupportLayout>
+  )
+}
+
+function FamilySupportPage({ locale }: { locale: Locale }) {
+  const t = content[locale].family
+  return (
+    <SupportLayout locale={locale}>
+      <div>
+        <h1 className="mb-4 text-4xl font-extralight tracking-tight text-foreground md:text-5xl">{t.title}</h1>
+        <p className="text-lg">{t.subtitle}</p>
       </div>
-    </PageShell>
+      <section>
+        <h2 className="mb-4 text-xl font-light text-foreground">{t.contactTitle}</h2>
+        <p>{t.contactBeforeEmail}<MailLink />.</p>
+      </section>
+      <section id="policy" className="scroll-mt-8">
+        <h2 className="mb-2 text-2xl font-light text-foreground">{t.privacyTitle}</h2>
+        <p className="mb-8 text-sm text-muted-foreground">{t.updated}</p>
+        <div className="space-y-8">
+          <div>
+            <h3 className="mb-3 text-lg font-light text-foreground">{t.ownerTitle}</h3>
+            <p>{t.ownerBeforeEmail}<MailLink />.</p>
+          </div>
+          <div>
+            <h3 className="mb-3 text-lg font-light text-foreground">{t.gameDataTitle}</h3>
+            <p>{t.gameDataOne}</p>
+            <p className="mt-3">{t.gameDataTwo}</p>
+          </div>
+          <div>
+            <h3 className="mb-3 text-lg font-light text-foreground">{t.analyticsTitle}</h3>
+            <p>{t.analytics}</p>
+            <p className="mt-3">{t.googleBeforeLink}<GooglePrivacyLink>{t.googleLink}</GooglePrivacyLink>.</p>
+          </div>
+          <div>
+            <h3 className="mb-3 text-lg font-light text-foreground">{t.storageTitle}</h3>
+            <p>{t.storageBeforeEmail}<MailLink />{t.storageAfterEmail}</p>
+          </div>
+          <div>
+            <h3 className="mb-3 text-lg font-light text-foreground">{t.changesTitle}</h3>
+            <p>{t.changes}</p>
+          </div>
+        </div>
+      </section>
+    </SupportLayout>
   )
 }
