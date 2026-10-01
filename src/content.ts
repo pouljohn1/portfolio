@@ -31,14 +31,6 @@ export const content = {
           description: "Frontend development for Inter Cars.", href: "https://intercars.eu",
         },
         {
-          organization: "DomAlert", role: "Owner", period: "Aug 2024 – present",
-          description: "Building a platform that identifies property listings priced below similar homes nearby.", href: "https://domalert.pl",
-        },
-        {
-          organization: "Independent", role: "Software Developer", period: "Jan 2010 – present",
-          description: "Co-created Pola and built Android apps with more than 100,000 combined downloads, alongside other independent projects.", href: null,
-        },
-        {
           organization: "Homebrew Hackers Club", role: "CTO", period: "Aug 2025 – Jan 2026",
           description: "Technology leadership for Hacklab, a learning platform.", href: "https://hacklab.so",
         },
@@ -148,14 +140,6 @@ export const content = {
         {
           organization: "Inter Cars S.A.", role: "Software Engineer", period: "luty 2026 – obecnie",
           description: "Rozwój frontendu w Inter Cars.", href: "https://intercars.eu",
-        },
-        {
-          organization: "DomAlert", role: "Właściciel", period: "sierpień 2024 – obecnie",
-          description: "Buduję platformę, która wyszukuje nieruchomości wycenione poniżej podobnych ofert w okolicy.", href: "https://domalert.pl",
-        },
-        {
-          organization: "Działalność niezależna", role: "Programista", period: "styczeń 2010 – obecnie",
-          description: "Współtworzyłem aplikację Pola i aplikacje na Androida pobrane łącznie ponad 100 tys. razy, a także inne własne projekty.", href: null,
         },
         {
           organization: "Homebrew Hackers Club", role: "CTO", period: "sierpień 2025 – styczeń 2026",
