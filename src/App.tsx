@@ -48,7 +48,7 @@ function PageShell({ children, locale, page }: { children: ReactNode; locale: Lo
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="mx-auto flex max-w-2xl flex-wrap items-center justify-end gap-3 px-6 pt-6">
+      <header className="mx-auto flex max-w-2xl items-center justify-between gap-3 px-6 pt-6">
         <nav aria-label={t.language} className="flex items-center gap-0.5">
           {(["en", "pl"] as const).map((option) => (
             <Button key={option} asChild variant={locale === option ? "secondary" : "ghost"} size="sm" className="h-8 min-w-11 px-2">
