@@ -4,6 +4,7 @@ export const content = {
   en: {
     meta: {
       home: "Portfolio of Paweł Janeczek — frontend developer and maker of web and iPhone apps.",
+      domalert: "DomAlert — property deals, price comparisons, saved searches and alerts.",
       lighter: "Lighter support and privacy policy.",
       family: "Familijna Gra support and privacy policy.",
     },
@@ -54,6 +55,36 @@ export const content = {
           organization: "Asseco Business Solutions SA", role: "iOS/Android Programmer", period: "Dec 2011 – Jun 2012",
           description: "Developed in-house iOS and Android applications with Objective-C and Java.", href: null,
         },
+      ],
+    },
+    domalert: {
+      title: "DomAlert",
+      eyebrow: "Property discovery",
+      introduction:
+        "DomAlert brings property listings into one place and highlights offers priced below similar homes nearby. It helps people spot opportunities, follow price changes and hear about matching listings as they appear.",
+      visit: "Visit domalert.pl",
+      socialTitle: "Follow DomAlert",
+      showcaseTitle: "Inside DomAlert",
+      showcase: [
+        ["Spot a deal", "An offer is shown alongside its price per square metre and how it compares with similar properties nearby."],
+        ["See the full picture", "The property view brings together the listing, its location, price history and comparable offers."],
+        ["Compare opportunities", "Nearby listings can be scanned side by side, with the difference from the local average visible at a glance."],
+      ],
+      exampleLabel: "Example from DomAlert",
+      cheaperLabel: "cheaper than nearby offers",
+      dealsLabel: "2 deals",
+      lowerLabel: "cheaper",
+      offerImageAlt: "Illustrated property on a map from DomAlert",
+      appImageAlt: "DomAlert property view with listing details, map and price history",
+      nearbyImageAlt: "Illustration of a nearby property",
+      featuresTitle: "What you can do",
+      features: [
+        ["Find listings in one place", "Browse new offers collected from popular Polish property portals."],
+        ["Explore locations", "Search selected areas for properties that match your criteria."],
+        ["Spot lower prices", "Compare an asking price per square metre with similar nearby properties."],
+        ["Follow price history", "See how the price of a listing has changed over time."],
+        ["Save what matters", "Keep useful filters and listings close at hand."],
+        ["Get alerts", "Choose email, SMS or web push updates about new offers and changes, immediately or in a daily summary."],
       ],
     },
     lighter: {
@@ -115,6 +146,7 @@ export const content = {
   pl: {
     meta: {
       home: "Portfolio Pawła Janeczka — frontend developera i twórcy aplikacji internetowych oraz na iPhone'a.",
+      domalert: "DomAlert — okazje na rynku nieruchomości, porównania cen, zapisane filtry i powiadomienia.",
       lighter: "Wsparcie i polityka prywatności aplikacji Lighter.",
       family: "Wsparcie i polityka prywatności aplikacji Familijna Gra.",
     },
@@ -165,6 +197,36 @@ export const content = {
           organization: "Asseco Business Solutions SA", role: "Programista iOS/Android", period: "grudzień 2011 – czerwiec 2012",
           description: "Rozwijałem wewnętrzne aplikacje iOS i Android w Objective-C i Javie.", href: null,
         },
+      ],
+    },
+    domalert: {
+      title: "DomAlert",
+      eyebrow: "Wyszukiwanie nieruchomości",
+      introduction:
+        "DomAlert zbiera ogłoszenia w jednym miejscu i wyróżnia oferty tańsze od podobnych nieruchomości w okolicy. Pomaga znaleźć okazję, śledzić zmiany cen i dowiedzieć się o nowych ofertach pasujących do wybranych kryteriów.",
+      visit: "Otwórz domalert.pl",
+      socialTitle: "Śledź DomAlert",
+      showcaseTitle: "DomAlert w praktyce",
+      showcase: [
+        ["Wypatrz okazję", "Przy ofercie widać cenę za metr kwadratowy i porównanie z podobnymi nieruchomościami w okolicy."],
+        ["Zobacz pełny obraz", "Widok nieruchomości łączy ogłoszenie, lokalizację, historię ceny i porównywalne oferty."],
+        ["Porównaj oferty", "Oferty z okolicy można przejrzeć obok siebie, od razu widząc różnicę względem lokalnej średniej."],
+      ],
+      exampleLabel: "Przykład z DomAlert",
+      cheaperLabel: "taniej niż w okolicy",
+      dealsLabel: "2 okazje",
+      lowerLabel: "taniej",
+      offerImageAlt: "Ilustracja nieruchomości na mapie z DomAlert",
+      appImageAlt: "Widok oferty w DomAlert ze szczegółami, mapą i historią ceny",
+      nearbyImageAlt: "Ilustracja nieruchomości z okolicy",
+      featuresTitle: "Co potrafi",
+      features: [
+        ["Ogłoszenia w jednym miejscu", "Przeglądaj nowe oferty zbierane z popularnych polskich portali nieruchomości."],
+        ["Wyszukiwanie lokalizacji", "Szukaj w wybranych miejscach nieruchomości pasujących do Twoich kryteriów."],
+        ["Okazje cenowe", "Porównuj cenę za metr kwadratowy z podobnymi ofertami w okolicy."],
+        ["Historia ceny", "Sprawdź, jak zmieniała się cena konkretnego ogłoszenia."],
+        ["Zapisane filtry i oferty", "Zachowaj interesujące wyszukiwania i ogłoszenia, żeby szybko do nich wrócić."],
+        ["Powiadomienia", "Wybierz alerty e-mail, SMS lub web push o nowych ofertach i zmianach — od razu albo w codziennym podsumowaniu."],
       ],
     },
     lighter: {

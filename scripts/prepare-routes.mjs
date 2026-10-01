@@ -2,10 +2,13 @@ import { copyFileSync, mkdirSync } from "node:fs"
 import { join } from "node:path"
 
 const routes = [
+  "domalert",
   "lighter-support",
   "familijna-gra-support",
   "en",
   "pl",
+  "en/domalert",
+  "pl/domalert",
   "en/lighter-support",
   "pl/lighter-support",
   "en/familijna-gra-support",

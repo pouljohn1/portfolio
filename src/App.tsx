@@ -1,15 +1,16 @@
 import { useEffect, type ReactNode } from "react"
-import { ArrowLeft, Linkedin, Moon, Sun, Twitter } from "lucide-react"
+import { ArrowLeft, BarChart3, Bell, Bookmark, ChevronRight, ExternalLink, History, Linkedin, MapPin, Moon, Search, Sun, Twitter } from "lucide-react"
 import { useTheme } from "next-themes"
 import { Link, useLocation } from "react-router"
 
 import { Button } from "@/components/ui/button"
 import { content, type Locale } from "./content"
 
-type Page = "home" | "lighter" | "family"
+type Page = "home" | "domalert" | "lighter" | "family"
 
 function currentPage(pathname: string): Page {
   const path = pathname.replace(/^\/(en|pl)(?=\/|$)/, "").replace(/\/$/, "")
+  if (path === "/domalert") return "domalert"
   if (path === "/lighter-support") return "lighter"
   if (path === "/familijna-gra-support") return "family"
   return "home"
@@ -22,7 +23,12 @@ function currentLocale(pathname: string): Locale {
 }
 
 function localizedPath(locale: Locale, page: Page) {
-  const suffix = page === "lighter" ? "/lighter-support" : page === "family" ? "/familijna-gra-support" : ""
+  const suffix = {
+    home: "",
+    domalert: "/domalert",
+    lighter: "/lighter-support",
+    family: "/familijna-gra-support",
+  }[page]
   return `/${locale}${suffix}`
 }
 
@@ -48,7 +54,7 @@ export function App() {
 
   return (
     <PageShell locale={locale} page={page}>
-      {page === "lighter" ? <LighterSupportPage locale={locale} /> : page === "family" ? <FamilySupportPage locale={locale} /> : <HomePage locale={locale} />}
+      {page === "domalert" ? <DomAlertPage locale={locale} /> : page === "lighter" ? <LighterSupportPage locale={locale} /> : page === "family" ? <FamilySupportPage locale={locale} /> : <HomePage locale={locale} />}
     </PageShell>
   )
 }
@@ -123,7 +129,7 @@ function HomePage({ locale }: { locale: Locale }) {
       <section className="mb-24">
         <h2 className="mb-10 text-xl font-extralight tracking-wide text-muted-foreground">{t.projects}</h2>
         <div className="space-y-4">
-          <PortfolioLink href="https://domalert.pl" title="domalert.pl" description={t.domalert} />
+          <PortfolioLink href={localizedPath(locale, "domalert")} title="domalert.pl" description={t.domalert} />
           <PortfolioLink href="https://poliswar.xyz" title="poliswar.xyz" description={t.poliswar} />
           <PortfolioLink href="https://apps.apple.com/us/app/lighter-simulator/id6758013623" title="Lighter Simulator" description={t.lighter} />
           <PortfolioLink href={localizedPath(locale, "family")} title="Familijna Gra" description={t.family} />
@@ -163,13 +169,14 @@ function PortfolioLink({ href, title, description }: { href: string; title: stri
   const external = href.startsWith("http")
   const children = (
     <>
-      <h3 className="text-lg font-light text-foreground">
+      <h3 className="flex items-center gap-2 text-lg font-light text-foreground">
         {title}
+        {!external ? <ChevronRight className="size-4 shrink-0 transition-transform group-hover:translate-x-1" aria-hidden="true" /> : null}
       </h3>
       <p className="mt-1 text-sm text-muted-foreground">{description}</p>
     </>
   )
-  const className = "block border-l border-border py-2 pl-6 transition-all hover:border-foreground/60 hover:pl-8"
+  const className = "group block border-l border-border py-2 pl-6 transition-all hover:border-foreground/60 hover:pl-8"
 
   if (!external) return <Link to={href} className={className}>{children}</Link>
 
@@ -184,6 +191,97 @@ function SocialLink({ href, label, icon }: { href: string; label: string; icon: 
       {icon}
       <span className="text-sm">{label}</span>
     </a>
+  )
+}
+
+function DomAlertPage({ locale }: { locale: Locale }) {
+  const t = content[locale].domalert
+  const featureIcons = [Search, MapPin, BarChart3, History, Bookmark, Bell]
+
+  return (
+    <div className="mx-auto max-w-2xl px-6 pb-20 pt-14 md:pb-32 md:pt-20">
+      <Button asChild variant="ghost" className="-ml-3 mb-10 text-muted-foreground">
+        <Link to={localizedPath(locale, "home")}><ArrowLeft className="size-4" aria-hidden="true" />{content[locale].controls.back}</Link>
+      </Button>
+
+      <section className="mb-20">
+        <p className="mb-5 text-sm font-medium uppercase tracking-widest text-muted-foreground">{t.eyebrow}</p>
+        <h1 className="mb-6 text-5xl font-extralight tracking-tight text-foreground md:text-6xl">{t.title}</h1>
+        <p className="max-w-xl text-lg leading-relaxed text-muted-foreground">{t.introduction}</p>
+        <Button asChild className="mt-8">
+          <a href="https://domalert.pl" target="_blank" rel="noopener noreferrer">{t.visit}<ExternalLink className="size-4" aria-hidden="true" /></a>
+        </Button>
+        <nav aria-label={t.socialTitle} className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+          <span className="text-muted-foreground">{t.socialTitle}</span>
+          <a href="https://x.com/DomAlertPl" target="_blank" rel="noopener noreferrer" className="text-foreground underline decoration-border underline-offset-4 hover:decoration-foreground">X</a>
+          <a href="https://www.facebook.com/people/DomAlert/61577237842845/" target="_blank" rel="noopener noreferrer" className="text-foreground underline decoration-border underline-offset-4 hover:decoration-foreground">Facebook</a>
+        </nav>
+      </section>
+
+      <section className="mb-20" aria-labelledby="domalert-showcase">
+        <h2 id="domalert-showcase" className="mb-8 text-xl font-extralight tracking-wide text-muted-foreground">{t.showcaseTitle}</h2>
+        <div className="space-y-14">
+          <figure>
+            <div className="relative flex min-h-80 items-center justify-center overflow-hidden rounded-3xl bg-[#edf2ff] p-6 sm:min-h-88">
+              <img src="/images/domalert/map-banner.webp" alt="" className="absolute inset-x-0 bottom-0 h-44 w-full object-cover" />
+              <span className="absolute left-5 top-5 text-xs font-medium text-[#485779]">{t.exampleLabel}</span>
+              <div className="relative w-full max-w-[300px] overflow-hidden rounded-2xl bg-white text-[#253047] shadow-xl">
+                <div className="relative">
+                  <img src="/images/domalert/offer-map.webp" alt={t.offerImageAlt} className="h-36 w-full object-cover" />
+                  <span className="absolute left-3 top-3 rounded-full bg-[#6684ef] px-2.5 py-1 text-xs font-medium text-white">-12.5% {t.cheaperLabel}</span>
+                </div>
+                <div className="p-4">
+                  <div className="flex flex-wrap items-baseline justify-between gap-2"><strong className="text-lg">699 000 zł</strong><span className="text-xs text-[#617089]">15 499 zł/m²</span></div>
+                  <p className="mt-1 text-sm text-[#617089]">Gdańsk, Śródmieście</p>
+                </div>
+              </div>
+            </div>
+            <figcaption className="mt-5"><h3 className="text-lg font-light text-foreground">{t.showcase[0][0]}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t.showcase[0][1]}</p></figcaption>
+          </figure>
+
+          <figure>
+            <div className="flex min-h-72 items-end justify-center overflow-hidden rounded-3xl bg-[#edf2ff] px-3 pt-10 sm:px-10">
+              <img src="/images/domalert/app-preview.webp" alt={t.appImageAlt} className="w-full max-w-[484px]" />
+            </div>
+            <figcaption className="mt-5"><h3 className="text-lg font-light text-foreground">{t.showcase[1][0]}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t.showcase[1][1]}</p></figcaption>
+          </figure>
+
+          <figure>
+            <div className="rounded-3xl bg-[#edf2ff] px-5 py-9 sm:px-10">
+              <div className="mx-auto max-w-sm rounded-2xl bg-white p-4 text-[#253047] shadow-xl">
+                <div className="mb-4 flex items-center gap-2"><img src="/images/domalert/logo-icon.webp" alt="" className="size-7" /><strong className="text-base">{t.dealsLabel}</strong></div>
+                {[
+                  { image: "nearby-offer-1.webp", price: "729 000 zł", perMetre: "14 526 zł/m²", difference: "-13%" },
+                  { image: "nearby-offer-2.webp", price: "698 000 zł", perMetre: "15 100 zł/m²", difference: "-7.8%" },
+                ].map(({ image, price, perMetre, difference }) => (
+                  <div key={image} className="mb-2 flex items-center gap-3 rounded-xl border border-[#e5eaf4] p-2 last:mb-0">
+                    <img src={`/images/domalert/${image}`} alt={t.nearbyImageAlt} className="size-14 shrink-0 rounded-lg object-cover" />
+                    <div className="min-w-0 flex-1"><p className="text-xs text-[#617089]">{perMetre}</p><p className="text-sm font-semibold">{price}</p></div>
+                    <span className="text-right text-xs text-[#6684ef]"><strong className="block text-sm">{difference}</strong>{t.lowerLabel}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <figcaption className="mt-5"><h3 className="text-lg font-light text-foreground">{t.showcase[2][0]}</h3><p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t.showcase[2][1]}</p></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section aria-labelledby="domalert-features">
+        <h2 id="domalert-features" className="mb-10 text-xl font-extralight tracking-wide text-muted-foreground">{t.featuresTitle}</h2>
+        <ul className="divide-y divide-border">
+          {t.features.map(([title, description], index) => {
+            const Icon = featureIcons[index]
+            return (
+              <li key={title} className="flex gap-5 py-5 first:pt-0">
+                <Icon className="mt-1 size-5 shrink-0 text-muted-foreground" aria-hidden="true" />
+                <div><h3 className="text-lg font-light text-foreground">{title}</h3><p className="mt-1 text-sm leading-relaxed text-muted-foreground">{description}</p></div>
+              </li>
+            )
+          })}
+        </ul>
+      </section>
+    </div>
   )
 }
 
