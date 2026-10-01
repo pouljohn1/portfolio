@@ -132,10 +132,20 @@ function HomePage({ locale }: { locale: Locale }) {
 
       <section className="mb-24">
         <h2 className="mb-10 text-xl font-extralight tracking-wide text-muted-foreground">{t.work}</h2>
-        <div className="space-y-4">
-          <PortfolioLink href="https://intercars.eu" title="intercars.eu" description={t.intercars} />
-          <PortfolioLink href="https://hacklab.so" title="hacklab.so" label={t.previous} description={t.hacklab} />
-        </div>
+        <ol className="space-y-6">
+          {t.experience.map(({ organization, role, period, description, href }) => (
+            <li key={`${organization}-${role}`} className="border-l border-border py-1 pl-6">
+              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <h3 className="text-lg font-light text-foreground">
+                  {href ? <a href={href} target="_blank" rel="noopener noreferrer" className="hover:underline hover:underline-offset-4">{organization}</a> : organization}
+                </h3>
+                <span className="text-sm text-muted-foreground">{period}</span>
+              </div>
+              <p className="mt-0.5 text-sm font-medium text-foreground">{role}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section>
@@ -149,13 +159,12 @@ function HomePage({ locale }: { locale: Locale }) {
   )
 }
 
-function PortfolioLink({ href, title, description, label }: { href: string; title: string; description: string; label?: string }) {
+function PortfolioLink({ href, title, description }: { href: string; title: string; description: string }) {
   const external = href.startsWith("http")
   const children = (
     <>
       <h3 className="text-lg font-light text-foreground">
         {title}
-        {label ? <span className="ml-2 text-sm font-normal text-muted-foreground">{label}</span> : null}
       </h3>
       <p className="mt-1 text-sm text-muted-foreground">{description}</p>
     </>

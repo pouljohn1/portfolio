@@ -17,17 +17,52 @@ export const content = {
     home: {
       greeting: "Hey, I'm Pawel",
       introduction:
-        "I build stuff for the web. Currently working on frontend at Inter Cars and building side projects like Domalert and Poliswar. Been coding for over a decade and love turning ideas into real products.",
+        "I build web and mobile products. I currently work on frontend at Inter Cars and develop independent projects like DomAlert and Poliswar. My experience spans more than a decade across iOS, Android, backend and web development.",
       projects: "Projects",
-      work: "Work",
+      work: "Experience",
       connect: "Connect",
-      previous: "prev",
       domalert: "Finding and getting notified about best deals on the apartments market.",
       poliswar: "A vibe coded strategic multiplayer game for fun.",
       lighter: "iPhone app with realistic lighter simulation, themes, gestures and sounds.",
       family: "A Polish family quiz game for iPhone. Support and privacy policy.",
-      intercars: "Frontend development for Europe's leading auto parts distributor.",
-      hacklab: "Learning platform that helps people to gain new experiences.",
+      experience: [
+        {
+          organization: "Inter Cars S.A.", role: "Software Engineer", period: "Feb 2026 – present",
+          description: "Frontend development for Inter Cars.", href: "https://intercars.eu",
+        },
+        {
+          organization: "DomAlert", role: "Owner", period: "Aug 2024 – present",
+          description: "Building a platform that identifies property listings priced below similar homes nearby.", href: "https://domalert.pl",
+        },
+        {
+          organization: "Independent", role: "Software Developer", period: "Jan 2010 – present",
+          description: "Co-created Pola and built Android apps with more than 100,000 combined downloads, alongside other independent projects.", href: null,
+        },
+        {
+          organization: "Homebrew Hackers Club", role: "CTO", period: "Aug 2025 – Jan 2026",
+          description: "Technology leadership for Hacklab, a learning platform.", href: "https://hacklab.so",
+        },
+        {
+          organization: "Qbit.", role: "Full Stack Developer", period: "Oct 2018 – Jun 2024",
+          description: "Sole developer across iOS, Android, React web interfaces and Django backend services.", href: null,
+        },
+        {
+          organization: "Polidea", role: "Staff Software Engineer", period: "Sep 2017 – Oct 2018",
+          description: "Led an Android team and frontend projects, including hiring and mentoring developers.", href: null,
+        },
+        {
+          organization: "Polidea", role: "Senior Software Engineer", period: "Sep 2014 – Sep 2015",
+          description: "Led iOS and Android projects and mentored developers on architecture and code quality.", href: null,
+        },
+        {
+          organization: "Polidea", role: "Software Engineer", period: "Jun 2012 – Sep 2014",
+          description: "Built iOS apps in Objective-C and integrated backend services through REST APIs.", href: null,
+        },
+        {
+          organization: "Asseco Business Solutions SA", role: "iOS/Android Programmer", period: "Dec 2011 – Jun 2012",
+          description: "Developed in-house iOS and Android applications with Objective-C and Java.", href: null,
+        },
+      ],
     },
     lighter: {
       title: "Lighter Support",
@@ -101,17 +136,52 @@ export const content = {
     home: {
       greeting: "Cześć, jestem Paweł",
       introduction:
-        "Tworzę rzeczy w internecie. Obecnie pracuję nad frontendem w Inter Cars, a po godzinach rozwijam projekty takie jak Domalert i Poliswar. Programuję od ponad dekady i lubię zamieniać pomysły w działające produkty.",
+        "Tworzę produkty internetowe i mobilne. Obecnie pracuję nad frontendem w Inter Cars i rozwijam własne projekty, takie jak DomAlert i Poliswar. Mam ponad dekadę doświadczenia z iOS, Androidem, backendem i aplikacjami webowymi.",
       projects: "Projekty",
-      work: "Praca",
+      work: "Doświadczenie",
       connect: "Kontakt",
-      previous: "wcześniej",
       domalert: "Wyszukiwanie najlepszych ofert mieszkań i powiadomienia o nowych okazjach.",
       poliswar: "Strategiczna gra wieloosobowa stworzona dla zabawy.",
       lighter: "Aplikacja na iPhone'a z realistyczną symulacją zapalniczki, motywami, gestami i dźwiękami.",
       family: "Polska gra quizowa dla rodzin na iPhone'a. Wsparcie i polityka prywatności.",
-      intercars: "Frontend dla czołowego europejskiego dystrybutora części samochodowych.",
-      hacklab: "Platforma edukacyjna, która pomaga zdobywać nowe doświadczenia.",
+      experience: [
+        {
+          organization: "Inter Cars S.A.", role: "Software Engineer", period: "luty 2026 – obecnie",
+          description: "Rozwój frontendu w Inter Cars.", href: "https://intercars.eu",
+        },
+        {
+          organization: "DomAlert", role: "Właściciel", period: "sierpień 2024 – obecnie",
+          description: "Buduję platformę, która wyszukuje nieruchomości wycenione poniżej podobnych ofert w okolicy.", href: "https://domalert.pl",
+        },
+        {
+          organization: "Działalność niezależna", role: "Programista", period: "styczeń 2010 – obecnie",
+          description: "Współtworzyłem aplikację Pola i aplikacje na Androida pobrane łącznie ponad 100 tys. razy, a także inne własne projekty.", href: null,
+        },
+        {
+          organization: "Homebrew Hackers Club", role: "CTO", period: "sierpień 2025 – styczeń 2026",
+          description: "Odpowiadałem za obszar technologiczny Hacklab, platformy edukacyjnej.", href: "https://hacklab.so",
+        },
+        {
+          organization: "Qbit.", role: "Full Stack Developer", period: "październik 2018 – czerwiec 2024",
+          description: "Samodzielnie rozwijałem aplikacje na iOS i Androida, interfejsy webowe w React oraz backend w Django.", href: null,
+        },
+        {
+          organization: "Polidea", role: "Staff Software Engineer", period: "wrzesień 2017 – październik 2018",
+          description: "Prowadziłem zespół Android i projekty frontendowe, uczestniczyłem w rekrutacji i mentoringu.", href: null,
+        },
+        {
+          organization: "Polidea", role: "Senior Software Engineer", period: "wrzesień 2014 – wrzesień 2015",
+          description: "Prowadziłem projekty iOS i Android oraz wspierałem programistów w architekturze i jakości kodu.", href: null,
+        },
+        {
+          organization: "Polidea", role: "Software Engineer", period: "czerwiec 2012 – wrzesień 2014",
+          description: "Tworzyłem aplikacje iOS w Objective-C i integrowałem je z usługami backendowymi przez REST API.", href: null,
+        },
+        {
+          organization: "Asseco Business Solutions SA", role: "Programista iOS/Android", period: "grudzień 2011 – czerwiec 2012",
+          description: "Rozwijałem wewnętrzne aplikacje iOS i Android w Objective-C i Javie.", href: null,
+        },
+      ],
     },
     lighter: {
       title: "Wsparcie Lighter",
