@@ -1,5 +1,5 @@
 import { useEffect, type ReactNode } from "react"
-import { ArrowLeft, Linkedin, Monitor, Moon, Sun, Twitter } from "lucide-react"
+import { ArrowLeft, Linkedin, Moon, Sun, Twitter } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
@@ -49,7 +49,7 @@ function PageShell({ children, locale, page }: { children: ReactNode; locale: Lo
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="mx-auto flex max-w-2xl flex-wrap items-center justify-end gap-3 px-6 pt-6">
-        <nav aria-label={t.language} className="flex items-center rounded-md border border-border p-0.5">
+        <nav aria-label={t.language} className="flex items-center gap-0.5">
           {(["en", "pl"] as const).map((option) => (
             <Button key={option} asChild variant={locale === option ? "secondary" : "ghost"} size="sm" className="h-8 min-w-11 px-2">
               <a href={`${localizedPath(option, page)}${window.location.hash}`} lang={option} aria-current={locale === option ? "page" : undefined}>
@@ -66,28 +66,28 @@ function PageShell({ children, locale, page }: { children: ReactNode; locale: Lo
 }
 
 function ThemeControls({ locale }: { locale: Locale }) {
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
   const labels = content[locale].controls
   const options = [
-    { value: "system", label: labels.system, icon: Monitor },
     { value: "light", label: labels.light, icon: Sun },
     { value: "dark", label: labels.dark, icon: Moon },
   ]
 
   return (
-    <div role="group" aria-label={labels.appearance} className="flex items-center rounded-md border border-border p-0.5">
+    <div role="group" aria-label={labels.appearance} className="flex items-center gap-0.5">
       {options.map(({ value, label, icon: Icon }) => (
         <Button
           key={value}
           type="button"
-          variant={(theme ?? "system") === value ? "secondary" : "ghost"}
-          size="sm"
-          className="h-8 gap-1.5 px-2 text-xs sm:text-sm"
-          aria-pressed={(theme ?? "system") === value}
+          variant={resolvedTheme === value ? "secondary" : "ghost"}
+          size="icon"
+          className="size-9"
+          aria-label={label}
+          title={label}
+          aria-pressed={resolvedTheme === value}
           onClick={() => setTheme(value)}
         >
           <Icon className="size-4" aria-hidden="true" />
-          <span>{label}</span>
         </Button>
       ))}
     </div>

@@ -10,7 +10,6 @@ export const content = {
     controls: {
       language: "Language",
       appearance: "Appearance",
-      system: "System",
       light: "Light",
       dark: "Dark",
       back: "Back to portfolio",
@@ -95,7 +94,6 @@ export const content = {
     controls: {
       language: "Język",
       appearance: "Wygląd",
-      system: "System",
       light: "Jasny",
       dark: "Ciemny",
       back: "Wróć do portfolio",
