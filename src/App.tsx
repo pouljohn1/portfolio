@@ -1,6 +1,7 @@
 import { useEffect, type ReactNode } from "react"
 import { ArrowLeft, Linkedin, Moon, Sun, Twitter } from "lucide-react"
 import { useTheme } from "next-themes"
+import { Link, useLocation } from "react-router"
 
 import { Button } from "@/components/ui/button"
 import { content, type Locale } from "./content"
@@ -26,8 +27,9 @@ function localizedPath(locale: Locale, page: Page) {
 }
 
 export function App() {
-  const page = currentPage(window.location.pathname)
-  const locale = currentLocale(window.location.pathname)
+  const location = useLocation()
+  const page = currentPage(location.pathname)
+  const locale = currentLocale(location.pathname)
   const t = content[locale]
 
   useEffect(() => {
@@ -35,6 +37,14 @@ export function App() {
     document.title = `${page === "home" ? "Paweł Janeczek" : t[page].title} — Portfolio`
     document.querySelector('meta[name="description"]')?.setAttribute("content", t.meta[page])
   }, [locale, page, t])
+
+  useEffect(() => {
+    if (location.hash) {
+      document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView()
+    } else {
+      window.scrollTo(0, 0)
+    }
+  }, [location.pathname, location.hash])
 
   return (
     <PageShell locale={locale} page={page}>
@@ -45,6 +55,7 @@ export function App() {
 
 function PageShell({ children, locale, page }: { children: ReactNode; locale: Locale; page: Page }) {
   const t = content[locale].controls
+  const location = useLocation()
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -52,9 +63,9 @@ function PageShell({ children, locale, page }: { children: ReactNode; locale: Lo
         <nav aria-label={t.language} className="flex items-center gap-0.5">
           {(["en", "pl"] as const).map((option) => (
             <Button key={option} asChild variant={locale === option ? "secondary" : "ghost"} size="sm" className="h-8 min-w-11 px-2">
-              <a href={`${localizedPath(option, page)}${window.location.hash}`} lang={option} aria-current={locale === option ? "page" : undefined}>
+              <Link to={`${localizedPath(option, page)}${location.hash}`} lang={option} aria-current={locale === option ? "page" : undefined}>
                 {option.toUpperCase()}
-              </a>
+              </Link>
             </Button>
           ))}
         </nav>
@@ -140,14 +151,21 @@ function HomePage({ locale }: { locale: Locale }) {
 
 function PortfolioLink({ href, title, description, label }: { href: string; title: string; description: string; label?: string }) {
   const external = href.startsWith("http")
-  return (
-    <a href={href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined} className="block border-l border-border py-2 pl-6 transition-all hover:border-foreground/60 hover:pl-8">
+  const children = (
+    <>
       <h3 className="text-lg font-light text-foreground">
         {title}
         {label ? <span className="ml-2 text-sm font-normal text-muted-foreground">{label}</span> : null}
       </h3>
       <p className="mt-1 text-sm text-muted-foreground">{description}</p>
-    </a>
+    </>
+  )
+  const className = "block border-l border-border py-2 pl-6 transition-all hover:border-foreground/60 hover:pl-8"
+
+  if (!external) return <Link to={href} className={className}>{children}</Link>
+
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className={className}>{children}</a>
   )
 }
 
@@ -164,7 +182,7 @@ function SupportLayout({ locale, children }: { locale: Locale; children: ReactNo
   return (
     <div className="mx-auto max-w-2xl px-6 pb-20 pt-14 md:pb-32 md:pt-20">
       <Button asChild variant="ghost" className="-ml-3 mb-8 text-muted-foreground">
-        <a href={localizedPath(locale, "home")}><ArrowLeft className="size-4" aria-hidden="true" />{content[locale].controls.back}</a>
+        <Link to={localizedPath(locale, "home")}><ArrowLeft className="size-4" aria-hidden="true" />{content[locale].controls.back}</Link>
       </Button>
       <div className="space-y-12 leading-relaxed text-muted-foreground">{children}</div>
     </div>
