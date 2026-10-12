@@ -19,7 +19,7 @@ export const content = {
     home: {
       greeting: "Hey, I'm Pawel",
       introduction:
-        "I build web and mobile products. I currently work on frontend at Inter Cars and develop independent projects like DomAlert and Poliswar. My experience spans more than a decade across iOS, Android, backend and web development.",
+        "I build web and mobile apps, from DomAlert to iPhone apps like Familijna Gra and Lighter. I work on frontend at Inter Cars and bring over a decade of experience across iOS, Android, web and backend development.",
       projects: "Projects",
       work: "Experience",
       connect: "Connect",
@@ -190,7 +190,7 @@ export const content = {
     home: {
       greeting: "Cześć, jestem Paweł",
       introduction:
-        "Tworzę produkty internetowe i mobilne. Obecnie pracuję nad frontendem w Inter Cars i rozwijam własne projekty, takie jak DomAlert i Poliswar. Mam ponad dekadę doświadczenia z iOS, Androidem, backendem i aplikacjami webowymi.",
+        "Tworzę aplikacje internetowe i mobilne — od DomAlert po Familijną Grę i Lighter na iPhone’a. Na co dzień rozwijam frontend w Inter Cars. Mam ponad dekadę doświadczenia w iOS, Androidzie, aplikacjach webowych i backendzie.",
       projects: "Projekty",
       work: "Doświadczenie",
       connect: "Kontakt",

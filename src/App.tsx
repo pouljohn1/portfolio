@@ -133,9 +133,9 @@ function HomePage({ locale }: { locale: Locale }) {
         <h2 className="mb-10 text-xl font-extralight tracking-wide text-muted-foreground">{t.projects}</h2>
         <div className="space-y-4">
           <PortfolioLink href={localizedPath(locale, "domalert")} title="domalert.pl" description={t.domalert} />
-          <PortfolioLink href="https://poliswar.xyz" title="poliswar.xyz" description={t.poliswar} />
-          <PortfolioLink href="https://apps.apple.com/us/app/lighter-simulator/id6758013623" title="Lighter Simulator" description={t.lighter} />
           <PortfolioLink href={localizedPath(locale, "familyGame")} title="Familijna Gra" description={t.family} />
+          <PortfolioLink href="https://apps.apple.com/us/app/lighter-simulator/id6758013623" title="Lighter Simulator" description={t.lighter} />
+          <PortfolioLink href="https://poliswar.xyz" title="poliswar.xyz" description={t.poliswar} />
         </div>
       </section>
 
