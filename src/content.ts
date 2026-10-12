@@ -7,6 +7,7 @@ export const content = {
       domalert: "DomAlert — property deals, price comparisons, saved searches and alerts.",
       lighter: "Lighter support and privacy policy.",
       family: "Familijna Gra support and privacy policy.",
+      familyGame: "Familijna Gra — a Polish quiz for iPhone. Guess popular answers, play online or against a bot, and win points for your family.",
     },
     controls: {
       language: "Language",
@@ -25,7 +26,7 @@ export const content = {
       domalert: "Finding and getting notified about best deals on the apartments market.",
       poliswar: "A vibe coded strategic multiplayer game for fun.",
       lighter: "iPhone app with realistic lighter simulation, themes, gestures and sounds.",
-      family: "A Polish family quiz game for iPhone. Support and privacy policy.",
+      family: "A Polish quiz for iPhone. Guess popular answers and compete online or against a bot.",
       experience: [
         {
           organization: "Inter Cars S.A.", role: "Software Engineer", period: "Feb 2026 – present",
@@ -114,6 +115,34 @@ export const content = {
       requirementsTitle: "Requirements",
       requirements: ["iOS 16.0 or later", "iPhone (Real device required for motion-sensing physics)"],
     },
+    familyGame: {
+      title: "Familijna Gra",
+      eyebrow: "Polish quiz · Made for iPhone",
+      headline: "What would you answer?",
+      introduction: "What do people take to the beach? What goes on a pizza? Guess popular answers, reveal the board and win points for your family in a colourful game-show quiz.",
+      download: "Download on the",
+      availability: "Free · iOS 17 or later · Available in the Polish App Store",
+      highlights: ["In Polish", "No ads", "No in-app purchases"],
+      heroAlt: "Familijna Gra promotional image with the host and a board asking what people take to the beach",
+      howTitle: "One board. Plenty of ideas.",
+      howSubtitle: "Five rounds. Every answer counts.",
+      steps: [
+        ["Guess an answer", "Type your idea. A correct answer reveals a place on the board and adds points to the round’s bank."],
+        ["Watch the stakes", "After three mistakes, your opponent gets one chance to steal the whole bank. A single answer can turn the round around."],
+        ["Win for your family", "Collect points across five rounds. The higher total wins, with an extra round to settle a tie."],
+      ],
+      galleryTitle: "Take a look inside",
+      galleryDescription: "Play against another player through Game Center, or choose local play and face a bot right away — including offline.",
+      screenshots: [
+        { image: "answer", title: "Reveal the answers", description: "Every correct guess brings you closer to a full board.", alt: "Game image showing a correct pizza topping answer and the points earned" },
+        { image: "steal", title: "Turn the round around", description: "Your opponent’s mistake could be your chance to take the points.", alt: "Game image showing one remaining chance to steal a round" },
+        { image: "play", title: "Online or against a bot", description: "Find an opponent, or start a local match whenever you like.", alt: "Game image presenting local play against a bot and online multiplayer" },
+      ],
+      gameLanguage: "The game and all questions are in Polish. Online play requires internet and Game Center sign-in.",
+      linksTitle: "Support and privacy",
+      support: "Get support",
+      privacy: "Privacy policy",
+    },
     family: {
       title: "Familijna Gra",
       subtitle: "Support and privacy policy for the iPhone app.",
@@ -149,6 +178,7 @@ export const content = {
       domalert: "DomAlert — okazje na rynku nieruchomości, porównania cen, zapisane filtry i powiadomienia.",
       lighter: "Wsparcie i polityka prywatności aplikacji Lighter.",
       family: "Wsparcie i polityka prywatności aplikacji Familijna Gra.",
+      familyGame: "Familijna Gra — quiz po polsku na iPhone’a. Zgaduj popularne odpowiedzi, graj online lub z botem i zdobywaj punkty dla swojej rodziny.",
     },
     controls: {
       language: "Język",
@@ -167,7 +197,7 @@ export const content = {
       domalert: "Wyszukiwanie najlepszych ofert mieszkań i powiadomienia o nowych okazjach.",
       poliswar: "Strategiczna gra wieloosobowa stworzona dla zabawy.",
       lighter: "Aplikacja na iPhone'a z realistyczną symulacją zapalniczki, motywami, gestami i dźwiękami.",
-      family: "Polska gra quizowa dla rodzin na iPhone'a. Wsparcie i polityka prywatności.",
+      family: "Quiz po polsku na iPhone’a. Zgaduj popularne odpowiedzi i rywalizuj online lub z botem.",
       experience: [
         {
           organization: "Inter Cars S.A.", role: "Software Engineer", period: "luty 2026 – obecnie",
@@ -255,6 +285,34 @@ export const content = {
         "Lighter nie wysyła do tych usług importowanych obrazów, nazw twórców, nazw motywów ani identyfikatorów rekordów CloudKit. Nie korzysta z identyfikatorów reklamowych ani ze śledzenia między aplikacjami.",
       requirementsTitle: "Wymagania",
       requirements: ["iOS 16.0 lub nowszy", "iPhone (do działania fizyki opartej na ruchu potrzebne jest prawdziwe urządzenie)"],
+    },
+    familyGame: {
+      title: "Familijna Gra",
+      eyebrow: "Quiz po polsku · Na iPhone’a",
+      headline: "A Ty co wpiszesz?",
+      introduction: "Co najczęściej zabierasz na plażę? Jaki składnik kładziesz na pizzę? Zgaduj popularne odpowiedzi, odkrywaj tablicę i zdobywaj punkty dla swojej rodziny w kolorowym quizie w klimacie teleturnieju.",
+      download: "Pobierz w",
+      availability: "Za darmo · iOS 17 lub nowszy · Polski App Store",
+      highlights: ["Po polsku", "Bez reklam", "Bez zakupów w aplikacji"],
+      heroAlt: "Grafika Familijnej Gry z prowadzącym i tablicą odpowiedzi na pytanie o rzeczy zabierane na plażę",
+      howTitle: "Jedna tablica. Mnóstwo skojarzeń.",
+      howSubtitle: "Pięć rund. Każda odpowiedź się liczy.",
+      steps: [
+        ["Zgaduj odpowiedzi", "Wpisz swój pomysł. Trafienie odsłania miejsce na tablicy i dodaje punkty do banku rundy."],
+        ["Pilnuj szans", "Po trzech pomyłkach rywal ma jedną próbę przejęcia całego banku. Jedna odpowiedź może odwrócić losy rundy."],
+        ["Wygraj dla swojej rodziny", "Zbieraj punkty przez pięć rund. Wygrywa wyższy wynik, a przy remisie rozstrzyga dogrywka."],
+      ],
+      galleryTitle: "Zajrzyj do gry",
+      galleryDescription: "Zmierz się z innym graczem przez Game Center albo wybierz „Graj lokalnie” i od razu zagraj z botem — również bez internetu.",
+      screenshots: [
+        { image: "answer", title: "Odkrywaj odpowiedzi", description: "Każde trafienie przybliża Cię do odkrycia całej tablicy.", alt: "Grafika z gry z poprawną odpowiedzią na pytanie o składnik pizzy i zdobytymi punktami" },
+        { image: "steal", title: "Przejmij rundę", description: "Pomyłka rywala może być Twoją szansą na zdobycie punktów.", alt: "Grafika z gry z ostatnią szansą na przejęcie punktów w rundzie" },
+        { image: "play", title: "Online lub z botem", description: "Znajdź rywala albo rozpocznij lokalny mecz, kiedy chcesz.", alt: "Grafika przedstawiająca grę lokalną z botem i pojedynek online" },
+      ],
+      gameLanguage: "Cała gra i pytania są po polsku. Rozgrywka online wymaga internetu i zalogowania do Game Center.",
+      linksTitle: "Pomoc i prywatność",
+      support: "Pomoc i kontakt",
+      privacy: "Polityka prywatności",
     },
     family: {
       title: "Familijna Gra",

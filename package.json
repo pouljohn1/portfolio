@@ -4,9 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/prepare-routes.mjs",
     "dev": "vite",
-    "postbuild": "node scripts/prepare-routes.mjs",
     "preview": "vite preview",
     "start": "vite preview --host 0.0.0.0"
   },
