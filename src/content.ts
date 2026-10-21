@@ -121,8 +121,8 @@ export const content = {
       headline: "What would you answer?",
       introduction: "What do people take to the beach? What goes on a pizza? Guess popular answers, reveal the board and win points for your family in a colourful game-show quiz.",
       download: "Download on the",
-      availability: "Free · iOS 17 or later · Available in the Polish App Store",
-      highlights: ["In Polish", "No ads", "No in-app purchases"],
+      availability: "Free with an in-app purchase · iOS 17 or later · Polish App Store",
+      highlights: ["In Polish", "Solo campaign", "Online ranking"],
       heroAlt: "Familijna Gra promotional image with the host and a board asking what people take to the beach",
       howTitle: "One board. Plenty of ideas.",
       howSubtitle: "Five rounds. Every answer counts.",
@@ -149,7 +149,7 @@ export const content = {
       contactTitle: "Contact",
       contactBeforeEmail: "If you have a problem with the game or a question about your data, email ",
       privacyTitle: "Privacy Policy",
-      updated: "Last updated: September 28, 2026",
+      updated: "Last updated: October 21, 2026",
       ownerTitle: "Who is responsible for the app",
       ownerBeforeEmail: "Familijna Gra is operated by Paweł Janeczek. For privacy questions, contact me at ",
       gameDataTitle: "Data needed for the game",
@@ -157,11 +157,21 @@ export const content = {
         "Your family name is stored locally on your device. If you use iCloud, the app saves your profile in CloudKit and reserves the name in a public database so another family cannot choose it. The name may be visible to other players. Apple's Game Center is used to sign in a player, find an opponent, and exchange data during a match.",
       gameDataTwo:
         "Completed match results are kept in a local queue when syncing is unavailable. Match details are saved to the player's private CloudKit database. In online matches, the host also saves a public summary with family names, date, and score. This summary does not include entered answers or Game Center or iCloud account identifiers. Entered answers are shared with the opponent during a match but are not saved in CloudKit match history.",
+      gameDataThree:
+        "The online ranking stores the family name, ranking points, number of counted matches, and identifiers of counted matches in a public CloudKit database. The record is linked to a one-way hash of the Game Center identifier. The family name and points are visible to other players on the leaderboard. Solo campaign progress, hints, and Full Game ownership are stored locally on the device. Achievements are reported to Game Center and assigned to your Game Center account.",
       analyticsTitle: "Analytics and diagnostics",
       analytics:
-        "We use Firebase Analytics to understand screen usage and game actions, and Firebase Crashlytics to diagnose crashes and errors. These services may process an installation identifier, device, operating system and app information, usage events, and diagnostic data. We do not send entered answers, family names, or player identifiers to Firebase. We do not use advertising identifiers or data for cross-app tracking.",
+        "We use Firebase Analytics to understand screen usage and game actions, and Firebase Crashlytics to diagnose crashes and errors. These services may process an installation identifier, device, operating system and app information, usage events (including ad and purchase events and estimated ad revenue), and diagnostic data. We do not send entered answers, family names, player identifiers, or transaction identifiers to Firebase.",
       googleBeforeLink: "Read more about Firebase data processing in ",
       googleLink: "Google's documentation",
+      adsTitle: "Ads",
+      ads:
+        "In the Solo campaign you can choose to watch a rewarded ad to get an extra hint. Ads are served by Google AdMob, which is loaded only when you choose this option. Google may process your IP address (to estimate general location), app- or developer-scoped device identifiers, information about ads shown and interactions with them, and diagnostic and performance data to show ads, measure them, and prevent fraud. The app does not ask for App Tracking Transparency permission, so it does not share the advertising identifier (IDFA). In the European Economic Area, the UK, and Switzerland we ask for consent with Google's form before showing ads; you can change your choice in the app settings under “Ad privacy”. Ads are limited to content suitable for families. We do not share entered answers, family names, or player identifiers with Google AdMob.",
+      adsBeforeLink: "Read more about how Google uses data in ",
+      adsLink: "Google's policy",
+      purchasesTitle: "In-app purchases",
+      purchases:
+        "The Full Game purchase is handled by Apple through the App Store. We do not receive card details or a billing address. The app checks with the App Store whether the purchase is active and stores that information on the device.",
       storageTitle: "Storage and your choices",
       storageBeforeEmail:
         "We keep profile and result data to run the game and show match history. You can remove local data by uninstalling the app; data stored in CloudKit may remain after uninstalling. To ask about your data, correct it, or request its deletion, email ",
@@ -292,8 +302,8 @@ export const content = {
       headline: "A Ty co wpiszesz?",
       introduction: "Co najczęściej zabierasz na plażę? Jaki składnik kładziesz na pizzę? Zgaduj popularne odpowiedzi, odkrywaj tablicę i zdobywaj punkty dla swojej rodziny w kolorowym quizie w klimacie teleturnieju.",
       download: "Pobierz w",
-      availability: "Za darmo · iOS 17 lub nowszy · Polski App Store",
-      highlights: ["Po polsku", "Bez reklam", "Bez zakupów w aplikacji"],
+      availability: "Za darmo, z zakupem w aplikacji · iOS 17 lub nowszy · Polski App Store",
+      highlights: ["Po polsku", "Kampania Solo", "Ranking online"],
       heroAlt: "Grafika Familijnej Gry z prowadzącym i tablicą odpowiedzi na pytanie o rzeczy zabierane na plażę",
       howTitle: "Jedna tablica. Mnóstwo skojarzeń.",
       howSubtitle: "Pięć rund. Każda odpowiedź się liczy.",
@@ -320,7 +330,7 @@ export const content = {
       contactTitle: "Kontakt",
       contactBeforeEmail: "Jeśli masz problem z grą lub pytanie dotyczące danych, napisz na ",
       privacyTitle: "Polityka prywatności",
-      updated: "Ostatnia aktualizacja: 28 września 2026 r.",
+      updated: "Ostatnia aktualizacja: 21 października 2026 r.",
       ownerTitle: "Kto odpowiada za aplikację",
       ownerBeforeEmail:
         "Za aplikację Familijna Gra odpowiada Paweł Janeczek. W sprawach prywatności skontaktujesz się ze mną pod adresem ",
@@ -329,11 +339,21 @@ export const content = {
         "Podana nazwa rodziny jest zapisywana lokalnie na urządzeniu. Jeśli korzystasz z iCloud, aplikacja zapisuje profil w CloudKit i rezerwuje nazwę w publicznej bazie, aby nie mogła jej wybrać inna rodzina. Nazwa może być widoczna innym graczom. Game Center firmy Apple służy do logowania gracza, wyszukiwania przeciwnika i przesyłania danych trwającego meczu.",
       gameDataTwo:
         "Wyniki zakończonych meczów zapisujemy w lokalnej kolejce, gdy synchronizacja jest niedostępna. Szczegół meczu trafia do prywatnej bazy CloudKit danego gracza. W meczu online host zapisuje także publiczne podsumowanie zawierające nazwy rodzin, datę i wynik. Nie zawiera ono wpisywanych odpowiedzi ani identyfikatorów kont Game Center lub iCloud. Wpisywane odpowiedzi są przekazywane rywalowi podczas meczu, lecz nie zapisujemy ich w historii CloudKit.",
+      gameDataThree:
+        "Ranking online zapisuje w publicznej bazie CloudKit nazwę rodziny, punkty rankingowe, liczbę zaliczonych meczów i identyfikatory naliczonych meczów. Rekord jest powiązany z jednokierunkowym skrótem identyfikatora Game Center. Nazwa rodziny i punkty są widoczne dla innych graczy na tablicy rankingu. Postęp kampanii Solo, podpowiedzi i informacja o zakupie Pełnej gry są zapisywane lokalnie na urządzeniu. Osiągnięcia są przesyłane do Game Center i przypisane do Twojego konta Game Center.",
       analyticsTitle: "Analityka i diagnostyka",
       analytics:
-        "Korzystamy z Firebase Analytics, aby rozumieć użycie ekranów i działania gry, oraz z Firebase Crashlytics, aby diagnozować awarie i błędy. Usługi te mogą przetwarzać identyfikator instalacji, informacje o urządzeniu, systemie i aplikacji, zdarzenia użycia oraz dane diagnostyczne. Do Firebase nie wysyłamy wpisywanych odpowiedzi, nazw rodzin ani identyfikatorów graczy. Nie używamy identyfikatora reklamowego ani danych do śledzenia między aplikacjami.",
+        "Korzystamy z Firebase Analytics, aby rozumieć użycie ekranów i działania gry, oraz z Firebase Crashlytics, aby diagnozować awarie i błędy. Usługi te mogą przetwarzać identyfikator instalacji, informacje o urządzeniu, systemie i aplikacji, zdarzenia użycia (w tym zdarzenia reklam i zakupów oraz szacowany przychód z reklam) oraz dane diagnostyczne. Do Firebase nie wysyłamy wpisywanych odpowiedzi, nazw rodzin, identyfikatorów graczy ani identyfikatorów transakcji.",
       googleBeforeLink: "Więcej o przetwarzaniu danych przez Firebase znajdziesz w ",
       googleLink: "dokumentacji Google",
+      adsTitle: "Reklamy",
+      ads:
+        "W kampanii Solo możesz dobrowolnie obejrzeć reklamę nagradzaną, aby otrzymać dodatkową podpowiedź. Reklamy wyświetla Google AdMob, uruchamiany dopiero po wybraniu tej opcji. Google może przetwarzać adres IP (do określenia przybliżonej lokalizacji), identyfikatory urządzenia przypisane do aplikacji lub dewelopera, informacje o wyświetlonych reklamach i interakcjach z nimi oraz dane diagnostyczne i wydajnościowe, aby wyświetlać reklamy, mierzyć ich skuteczność i zapobiegać nadużyciom. Aplikacja nie prosi o zgodę na śledzenie (App Tracking Transparency), więc nie udostępnia identyfikatora reklamowego (IDFA). W Europejskim Obszarze Gospodarczym, Wielkiej Brytanii i Szwajcarii przed wyświetleniem reklam prosimy o zgodę przez formularz Google; wybór możesz zmienić w ustawieniach aplikacji w pozycji „Prywatność reklam”. Reklamy są ograniczone do treści odpowiednich dla rodziny. Nie przekazujemy Google AdMob wpisywanych odpowiedzi, nazw rodzin ani identyfikatorów graczy.",
+      adsBeforeLink: "Więcej o wykorzystaniu danych przez Google znajdziesz w ",
+      adsLink: "zasadach Google",
+      purchasesTitle: "Zakupy w aplikacji",
+      purchases:
+        "Zakup Pełnej gry obsługuje Apple w App Store. Nie otrzymujemy danych karty ani adresu rozliczeniowego. Aplikacja sprawdza w App Store, czy zakup jest aktywny, i zapisuje tę informację na urządzeniu.",
       storageTitle: "Przechowywanie i Twoje wybory",
       storageBeforeEmail:
         "Dane profilu i wyników przechowujemy na potrzeby działania gry i historii meczów. Dane lokalne możesz usunąć, odinstalowując aplikację; dane zapisane w CloudKit mogą pozostać po odinstalowaniu. Jeśli chcesz uzyskać informacje o swoich danych, poprawić je lub poprosić o ich usunięcie, napisz na ",

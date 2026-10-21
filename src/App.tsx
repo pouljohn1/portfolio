@@ -307,6 +307,10 @@ function GooglePrivacyLink({ children }: { children: ReactNode }) {
   return <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer" className="text-foreground underline underline-offset-4 hover:no-underline">{children}</a>
 }
 
+function GoogleAdsPrivacyLink({ children }: { children: ReactNode }) {
+  return <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer" className="text-foreground underline underline-offset-4 hover:no-underline">{children}</a>
+}
+
 function LighterSupportPage({ locale }: { locale: Locale }) {
   const t = content[locale].lighter
   return (
@@ -366,11 +370,21 @@ function FamilySupportPage({ locale }: { locale: Locale }) {
             <h3 className="mb-3 text-lg font-light text-foreground">{t.gameDataTitle}</h3>
             <p>{t.gameDataOne}</p>
             <p className="mt-3">{t.gameDataTwo}</p>
+            <p className="mt-3">{t.gameDataThree}</p>
           </div>
           <div>
             <h3 className="mb-3 text-lg font-light text-foreground">{t.analyticsTitle}</h3>
             <p>{t.analytics}</p>
             <p className="mt-3">{t.googleBeforeLink}<GooglePrivacyLink>{t.googleLink}</GooglePrivacyLink>.</p>
+          </div>
+          <div>
+            <h3 className="mb-3 text-lg font-light text-foreground">{t.adsTitle}</h3>
+            <p>{t.ads}</p>
+            <p className="mt-3">{t.adsBeforeLink}<GoogleAdsPrivacyLink>{t.adsLink}</GoogleAdsPrivacyLink>.</p>
+          </div>
+          <div>
+            <h3 className="mb-3 text-lg font-light text-foreground">{t.purchasesTitle}</h3>
+            <p>{t.purchases}</p>
           </div>
           <div>
             <h3 className="mb-3 text-lg font-light text-foreground">{t.storageTitle}</h3>
