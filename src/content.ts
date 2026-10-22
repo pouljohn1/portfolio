@@ -150,6 +150,7 @@ export const content = {
       contactBeforeEmail: "If you have a problem with the game or a question about your data, email ",
       privacyTitle: "Privacy Policy",
       updated: "Last updated: October 21, 2026",
+      appliesTo: "Applies to app version",
       ownerTitle: "Who is responsible for the app",
       ownerBeforeEmail: "Familijna Gra is operated by Paweł Janeczek. For privacy questions, contact me at ",
       gameDataTitle: "Data needed for the game",
@@ -172,6 +173,15 @@ export const content = {
       purchasesTitle: "In-app purchases",
       purchases:
         "The Full Game purchase is handled by Apple through the App Store. We do not receive card details or a billing address. The app checks with the App Store whether the purchase is active and stores that information on the device.",
+      // Policy shown at the unversioned URL linked from App Store version 1.0. Empty sections are hidden.
+      policy10: {
+        updated: "Last updated: September 28, 2026",
+        gameDataThree: "",
+        analytics:
+          "We use Firebase Analytics to understand screen usage and game actions, and Firebase Crashlytics to diagnose crashes and errors. These services may process an installation identifier, device, operating system and app information, usage events, and diagnostic data. We do not send entered answers, family names, or player identifiers to Firebase. We do not use advertising identifiers or data for cross-app tracking.",
+        ads: "",
+        purchases: "",
+      },
       storageTitle: "Storage and your choices",
       storageBeforeEmail:
         "We keep profile and result data to run the game and show match history. You can remove local data by uninstalling the app; data stored in CloudKit may remain after uninstalling. To ask about your data, correct it, or request its deletion, email ",
@@ -331,6 +341,7 @@ export const content = {
       contactBeforeEmail: "Jeśli masz problem z grą lub pytanie dotyczące danych, napisz na ",
       privacyTitle: "Polityka prywatności",
       updated: "Ostatnia aktualizacja: 21 października 2026 r.",
+      appliesTo: "Dotyczy wersji aplikacji",
       ownerTitle: "Kto odpowiada za aplikację",
       ownerBeforeEmail:
         "Za aplikację Familijna Gra odpowiada Paweł Janeczek. W sprawach prywatności skontaktujesz się ze mną pod adresem ",
@@ -354,6 +365,15 @@ export const content = {
       purchasesTitle: "Zakupy w aplikacji",
       purchases:
         "Zakup Pełnej gry obsługuje Apple w App Store. Nie otrzymujemy danych karty ani adresu rozliczeniowego. Aplikacja sprawdza w App Store, czy zakup jest aktywny, i zapisuje tę informację na urządzeniu.",
+      // Policy shown at the unversioned URL linked from App Store version 1.0. Empty sections are hidden.
+      policy10: {
+        updated: "Ostatnia aktualizacja: 28 września 2026 r.",
+        gameDataThree: "",
+        analytics:
+          "Korzystamy z Firebase Analytics, aby rozumieć użycie ekranów i działania gry, oraz z Firebase Crashlytics, aby diagnozować awarie i błędy. Usługi te mogą przetwarzać identyfikator instalacji, informacje o urządzeniu, systemie i aplikacji, zdarzenia użycia oraz dane diagnostyczne. Do Firebase nie wysyłamy wpisywanych odpowiedzi, nazw rodzin ani identyfikatorów graczy. Nie używamy identyfikatora reklamowego ani danych do śledzenia między aplikacjami.",
+        ads: "",
+        purchases: "",
+      },
       storageTitle: "Przechowywanie i Twoje wybory",
       storageBeforeEmail:
         "Dane profilu i wyników przechowujemy na potrzeby działania gry i historii meczów. Dane lokalne możesz usunąć, odinstalowując aplikację; dane zapisane w CloudKit mogą pozostać po odinstalowaniu. Jeśli chcesz uzyskać informacje o swoich danych, poprawić je lub poprosić o ich usunięcie, napisz na ",

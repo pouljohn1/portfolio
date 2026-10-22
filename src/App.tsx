@@ -14,8 +14,16 @@ function currentPage(pathname: string): Page {
   if (path === "/domalert") return "domalert"
   if (path === "/lighter-support") return "lighter"
   if (path === "/familijna-gra") return "familyGame"
-  if (path === "/familijna-gra-support") return "family"
+  if (path === "/familijna-gra-support" || path === `/familijna-gra-support/${latestFamilyPolicy}`) return "family"
   return "home"
+}
+
+// The unversioned support URL keeps the 1.0 policy linked from the released app; newer policies get their own URL.
+const latestFamilyPolicy = "1.1"
+type FamilyPolicyVersion = "1.0" | typeof latestFamilyPolicy
+
+function familyPolicyVersion(pathname: string): FamilyPolicyVersion {
+  return pathname.replace(/\/$/, "").endsWith(`/familijna-gra-support/${latestFamilyPolicy}`) ? latestFamilyPolicy : "1.0"
 }
 
 function currentLocale(pathname: string): Locale {
@@ -57,7 +65,7 @@ export function App() {
 
   return (
     <PageShell locale={locale} page={page}>
-      {page === "domalert" ? <DomAlertPage locale={locale} /> : page === "lighter" ? <LighterSupportPage locale={locale} /> : page === "familyGame" ? <FamilyGamePage locale={locale} /> : page === "family" ? <FamilySupportPage locale={locale} /> : <HomePage locale={locale} />}
+      {page === "domalert" ? <DomAlertPage locale={locale} /> : page === "lighter" ? <LighterSupportPage locale={locale} /> : page === "familyGame" ? <FamilyGamePage locale={locale} /> : page === "family" ? <FamilySupportPage locale={locale} version={familyPolicyVersion(location.pathname)} /> : <HomePage locale={locale} />}
     </PageShell>
   )
 }
@@ -65,6 +73,8 @@ export function App() {
 function PageShell({ children, locale, page }: { children: ReactNode; locale: Locale; page: Page }) {
   const t = content[locale].controls
   const location = useLocation()
+  const policyVersion = familyPolicyVersion(location.pathname)
+  const policySuffix = page === "family" && policyVersion !== "1.0" ? `/${policyVersion}` : ""
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -72,7 +82,7 @@ function PageShell({ children, locale, page }: { children: ReactNode; locale: Lo
         <nav aria-label={t.language} className="flex items-center gap-0.5">
           {(["en", "pl"] as const).map((option) => (
             <Button key={option} asChild variant={locale === option ? "secondary" : "ghost"} size="sm" className="h-8 min-w-11 px-2">
-              <Link to={`${localizedPath(option, page)}${location.hash}`} lang={option} aria-current={locale === option ? "page" : undefined}>
+              <Link to={`${localizedPath(option, page)}${policySuffix}${location.hash}`} lang={option} aria-current={locale === option ? "page" : undefined}>
                 {option.toUpperCase()}
               </Link>
             </Button>
@@ -346,8 +356,8 @@ function LighterSupportPage({ locale }: { locale: Locale }) {
   )
 }
 
-function FamilySupportPage({ locale }: { locale: Locale }) {
-  const t = content[locale].family
+function FamilySupportPage({ locale, version }: { locale: Locale; version: FamilyPolicyVersion }) {
+  const t = version === "1.0" ? { ...content[locale].family, ...content[locale].family.policy10 } : content[locale].family
   return (
     <SupportLayout locale={locale}>
       <div>
@@ -360,7 +370,7 @@ function FamilySupportPage({ locale }: { locale: Locale }) {
       </section>
       <section id="policy" className="scroll-mt-8">
         <h2 className="mb-2 text-2xl font-light text-foreground">{t.privacyTitle}</h2>
-        <p className="mb-8 text-sm text-muted-foreground">{t.updated}</p>
+        <p className="mb-8 text-sm text-muted-foreground">{t.updated} · {t.appliesTo} {version}</p>
         <div className="space-y-8">
           <div>
             <h3 className="mb-3 text-lg font-light text-foreground">{t.ownerTitle}</h3>
@@ -370,22 +380,26 @@ function FamilySupportPage({ locale }: { locale: Locale }) {
             <h3 className="mb-3 text-lg font-light text-foreground">{t.gameDataTitle}</h3>
             <p>{t.gameDataOne}</p>
             <p className="mt-3">{t.gameDataTwo}</p>
-            <p className="mt-3">{t.gameDataThree}</p>
+            {t.gameDataThree && <p className="mt-3">{t.gameDataThree}</p>}
           </div>
           <div>
             <h3 className="mb-3 text-lg font-light text-foreground">{t.analyticsTitle}</h3>
             <p>{t.analytics}</p>
             <p className="mt-3">{t.googleBeforeLink}<GooglePrivacyLink>{t.googleLink}</GooglePrivacyLink>.</p>
           </div>
-          <div>
-            <h3 className="mb-3 text-lg font-light text-foreground">{t.adsTitle}</h3>
-            <p>{t.ads}</p>
-            <p className="mt-3">{t.adsBeforeLink}<GoogleAdsPrivacyLink>{t.adsLink}</GoogleAdsPrivacyLink>.</p>
-          </div>
-          <div>
-            <h3 className="mb-3 text-lg font-light text-foreground">{t.purchasesTitle}</h3>
-            <p>{t.purchases}</p>
-          </div>
+          {t.ads && (
+            <div>
+              <h3 className="mb-3 text-lg font-light text-foreground">{t.adsTitle}</h3>
+              <p>{t.ads}</p>
+              <p className="mt-3">{t.adsBeforeLink}<GoogleAdsPrivacyLink>{t.adsLink}</GoogleAdsPrivacyLink>.</p>
+            </div>
+          )}
+          {t.purchases && (
+            <div>
+              <h3 className="mb-3 text-lg font-light text-foreground">{t.purchasesTitle}</h3>
+              <p>{t.purchases}</p>
+            </div>
+          )}
           <div>
             <h3 className="mb-3 text-lg font-light text-foreground">{t.storageTitle}</h3>
             <p>{t.storageBeforeEmail}<MailLink />{t.storageAfterEmail}</p>
