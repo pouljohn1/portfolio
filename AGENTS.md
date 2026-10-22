@@ -18,7 +18,7 @@ Nie zmieniaj ani nie usuwaj tych tras bez aktualizacji App Store Connect i aplik
 
 Polityka Familijnej Gry jest wersjonowana, bo wydana aplikacja i jej listing muszą wskazywać politykę zgodną z tym, co robi dana wersja. Najnowsza treść jest w `content.<locale>.family`; starsze wersje to obiekty nadpisań (np. `policy10`), a pusta sekcja jest ukrywana. Wersję i jej trasę wybierają `latestFamilyPolicy` i `familyPolicyVersion` w `src/App.tsx`. Zmiana polityki dla nowej wersji aplikacji: dodaj nową trasę (także w `prepare-routes.mjs`), a dotychczasową treść zachowaj jako nadpisania pod jej dotychczasowym adresem.
 - `/familijna-gra/` - marketing URL Familijnej Gry. AdMob szuka `app-ads.txt` w tej domenie.
-- `/lighter-support/` - wsparcie i polityka Lightera.
+- `/lighter-support/` - wsparcie i polityka Lightera. Lighter w ASC nadal wskazuje stare hosty (`portfolio.pjanecze.chatgpt.site/lighter-support/#policy` i `v0-paul-lab.vercel.app/lighter-support`); nie wyłączaj ich, dopóki wydana wersja Lightera nie przejdzie na `pjanecze.xyz`.
 - `/domalert/` - strona DomAlert.
 - `/app-ads.txt` - wspólny dla wszystkich aplikacji z reklamami. Dopisuj wpisy, nie nadpisuj istniejących.
 
@@ -29,6 +29,7 @@ Zmiana zbieranych danych w aplikacji (SDK, analityka, reklamy, zakupy) wymaga ak
 - Hosting: Cloudflare Workers static assets, worker `pjanecze-xyz` (`wrangler.jsonc`), konto Cloudflare `fecfc3afb2a5410b98496ac81d8b56b0`. Strefa DNS `pjanecze.xyz` jest w tym samym koncie.
 - `pnpm build` buduje `dist/`. `pnpm run deploy` buduje i publikuje przez `wrangler deploy`. Push na GitHub niczego nie publikuje.
 - Podgląd przed publikacją: `pnpm preview` lokalnie albo `https://pjanecze-xyz.pjanecze.workers.dev`.
+- `www.pjanecze.xyz` obsługuje osobny Worker `pjanecze-xyz-www-redirect` (`workers/www-redirect/`), który przekierowuje 301 na domenę główną z zachowaniem ścieżki. Publikacja: `pnpm exec wrangler deploy -c workers/www-redirect/wrangler.jsonc`.
 - `public/_headers` ustawia roczny cache `immutable` dla `/assets/*` (pliki z hashem). HTML i pozostałe pliki są rewalidowane przy każdym żądaniu, więc nowa wersja jest widoczna od razu.
 - Publikacja jest operacją zewnętrzną: wykonuj ją tylko na prośbę użytkownika.
 
