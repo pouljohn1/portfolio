@@ -18,6 +18,7 @@ Nie zmieniaj ani nie usuwaj tych tras bez aktualizacji App Store Connect i aplik
 
 Polityka Familijnej Gry jest wersjonowana, bo wydana aplikacja i jej listing muszą wskazywać politykę zgodną z tym, co robi dana wersja. Najnowsza treść jest w `content.<locale>.family`; starsze wersje to obiekty nadpisań (np. `policy10`), a pusta sekcja jest ukrywana. Wersję i jej trasę wybierają `latestFamilyPolicy` i `familyPolicyVersion` w `src/App.tsx`. Zmiana polityki dla nowej wersji aplikacji: dodaj nową trasę (także w `prepare-routes.mjs`), a dotychczasową treść zachowaj jako nadpisania pod jej dotychczasowym adresem.
 - `/familijna-gra/` - marketing URL Familijnej Gry. AdMob szuka `app-ads.txt` w tej domenie.
+- `/lighter/` - strona marketingowa Lightera (zrzuty z App Store w `public/images/lighter/`, metadane SEO w `scripts/prepare-routes.mjs`). Linkuje do `/lighter-support/`.
 - `/lighter-support/` - wsparcie i polityka Lightera. Lighter w ASC nadal wskazuje stare hosty (`portfolio.pjanecze.chatgpt.site/lighter-support/#policy` i `v0-paul-lab.vercel.app/lighter-support`); nie wyłączaj ich, dopóki wydana wersja Lightera nie przejdzie na `pjanecze.xyz`.
 - `/domalert/` - strona DomAlert.
 - `/app-ads.txt` - wspólny dla wszystkich aplikacji z reklamami. Dopisuj wpisy, nie nadpisuj istniejących.

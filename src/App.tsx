@@ -6,13 +6,15 @@ import { Link, useLocation } from "react-router"
 import { Button } from "@/components/ui/button"
 import { content, type Locale } from "./content"
 import { FamilyGamePage } from "./FamilyGamePage"
+import { LighterPage } from "./LighterPage"
 
-type Page = "home" | "domalert" | "lighter" | "family" | "familyGame"
+type Page = "home" | "domalert" | "lighter" | "lighterApp" | "family" | "familyGame"
 
 function currentPage(pathname: string): Page {
   const path = pathname.replace(/^\/(en|pl)(?=\/|$)/, "").replace(/\/$/, "")
   if (path === "/domalert") return "domalert"
   if (path === "/lighter-support") return "lighter"
+  if (path === "/lighter") return "lighterApp"
   if (path === "/familijna-gra") return "familyGame"
   if (path === "/familijna-gra-support" || path === `/familijna-gra-support/${latestFamilyPolicy}`) return "family"
   return "home"
@@ -37,6 +39,7 @@ function localizedPath(locale: Locale, page: Page) {
     home: "",
     domalert: "/domalert",
     lighter: "/lighter-support",
+    lighterApp: "/lighter",
     family: "/familijna-gra-support",
     familyGame: "/familijna-gra",
   }[page]
@@ -65,7 +68,7 @@ export function App() {
 
   return (
     <PageShell locale={locale} page={page}>
-      {page === "domalert" ? <DomAlertPage locale={locale} /> : page === "lighter" ? <LighterSupportPage locale={locale} /> : page === "familyGame" ? <FamilyGamePage locale={locale} /> : page === "family" ? <FamilySupportPage locale={locale} version={familyPolicyVersion(location.pathname)} /> : <HomePage locale={locale} />}
+      {page === "domalert" ? <DomAlertPage locale={locale} /> : page === "lighter" ? <LighterSupportPage locale={locale} /> : page === "lighterApp" ? <LighterPage locale={locale} /> : page === "familyGame" ? <FamilyGamePage locale={locale} /> : page === "family" ? <FamilySupportPage locale={locale} version={familyPolicyVersion(location.pathname)} /> : <HomePage locale={locale} />}
     </PageShell>
   )
 }
@@ -78,7 +81,7 @@ function PageShell({ children, locale, page }: { children: ReactNode; locale: Lo
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className={`mx-auto flex ${page === "familyGame" ? "max-w-5xl" : "max-w-2xl"} items-center justify-between gap-3 px-6 pt-6`}>
+      <header className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-6 pt-6">
         <nav aria-label={t.language} className="flex items-center gap-0.5">
           {(["en", "pl"] as const).map((option) => (
             <Button key={option} asChild variant={locale === option ? "secondary" : "ghost"} size="sm" className="h-8 min-w-11 px-2">
@@ -128,7 +131,7 @@ function HomePage({ locale }: { locale: Locale }) {
   const t = content[locale].home
 
   return (
-    <div className="mx-auto max-w-2xl px-6 pb-20 pt-14 md:pb-32 md:pt-20">
+    <div className="mx-auto max-w-5xl px-6 pb-20 pt-14 md:pb-32 md:pt-20">
       <section className="mb-24">
         <div className="mb-10 flex justify-center">
           <div className="relative h-48 w-48 overflow-hidden rounded-full ring-1 ring-border">
@@ -144,7 +147,7 @@ function HomePage({ locale }: { locale: Locale }) {
         <div className="space-y-4">
           <PortfolioLink href={localizedPath(locale, "domalert")} title="domalert.pl" description={t.domalert} />
           <PortfolioLink href={localizedPath(locale, "familyGame")} title="Familijna Gra" description={t.family} />
-          <PortfolioLink href="https://apps.apple.com/us/app/lighter-simulator/id6758013623" title="Lighter Simulator" description={t.lighter} />
+          <PortfolioLink href={localizedPath(locale, "lighterApp")} title="Lighter Simulator" description={t.lighter} />
           <PortfolioLink href="https://poliswar.xyz" title="poliswar.xyz" description={t.poliswar} />
         </div>
       </section>
@@ -212,7 +215,7 @@ function DomAlertPage({ locale }: { locale: Locale }) {
   const featureIcons = [Search, MapPin, BarChart3, History, Bookmark, Bell]
 
   return (
-    <div className="mx-auto max-w-2xl px-6 pb-20 pt-14 md:pb-32 md:pt-20">
+    <div className="mx-auto max-w-5xl px-6 pb-20 pt-14 md:pb-32 md:pt-20">
       <Button asChild variant="ghost" className="-ml-3 mb-10 text-muted-foreground">
         <Link to={localizedPath(locale, "home")}><ArrowLeft className="size-4" aria-hidden="true" />{content[locale].controls.back}</Link>
       </Button>
@@ -300,7 +303,7 @@ function DomAlertPage({ locale }: { locale: Locale }) {
 
 function SupportLayout({ locale, children }: { locale: Locale; children: ReactNode }) {
   return (
-    <div className="mx-auto max-w-2xl px-6 pb-20 pt-14 md:pb-32 md:pt-20">
+    <div className="mx-auto max-w-5xl px-6 pb-20 pt-14 md:pb-32 md:pt-20">
       <Button asChild variant="ghost" className="-ml-3 mb-8 text-muted-foreground">
         <Link to={localizedPath(locale, "home")}><ArrowLeft className="size-4" aria-hidden="true" />{content[locale].controls.back}</Link>
       </Button>
