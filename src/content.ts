@@ -153,8 +153,8 @@ export const content = {
       storeUrl: "https://apps.apple.com/us/app/family-showdown-quiz/id6805541234",
       availability: "Free with an in-app purchase · iOS 17 or later · US App Store",
       highlights: ["In English", "Solo campaign", "English ranking"],
-      heroImage: null,
-      heroAlt: "",
+      heroImage: "en-guess",
+      heroAlt: "Family Showdown promotional image with the host and a board asking what we take to the beach",
       howTitle: "One board. Plenty of ideas.",
       howSubtitle: "Five rounds. Every answer counts.",
       steps: [
@@ -164,7 +164,11 @@ export const content = {
       ],
       galleryTitle: "What is inside",
       galleryDescription: "Play at your own pace in Solo, or go head to head in Duel. Each board totals 100 points. The points show what an answer is worth in the game. They are not a poll result.",
-      screenshots: [],
+      screenshots: [
+        { image: "en-solo", title: "Go Solo", description: "Five chapters of challenges to play at your own pace.", alt: "Solo map of chapter 1, Around the House, with the caption Your Solo adventure" },
+        { image: "en-play", title: "Online or against a bot", description: "Find an opponent, or start a local match whenever you like.", alt: "Game image presenting local play against a bot and online play" },
+        { image: "en-leaderboard", title: "Climb the leaderboard", description: "Online duels move your family up the English leaderboard.", alt: "English leaderboard of online duels with family names and points" },
+      ],
       details: [
         ["Solo", "Five chapters and 30 challenges: Around the House, Just Outside the Door, Out Shopping, On the Road, and Let's Celebrate. Earn up to three stars on a challenge. Chapter 1 is free, and each chapter opens when the one before it is complete."],
         ["Duel", "Play against another family online through Game Center, with its own English ranking, or choose Play locally and face a bot right away. Duel has 84 questions about food, home, travel, pets and everyday habits."],
