@@ -34,25 +34,26 @@ for (const route of routes) {
 const pages = [
   {
     path: "familijna-gra",
-    name: "Familijna Gra",
+    name: { pl: "Familijna Gra", en: "Family Showdown" },
     defaultLocale: "pl",
-    image: () => "https://pjanecze.xyz/images/familijna-gra/social.webp",
-    card: "summary_large_image",
+    // The social image is Polish artwork, so the English page has none until an English one exists.
+    image: (locale) => (locale === "pl" ? "https://pjanecze.xyz/images/familijna-gra/social.webp" : null),
+    card: (locale) => (locale === "pl" ? "summary_large_image" : "summary"),
     title: {
       pl: "Familijna Gra — Quiz na iPhone’a",
-      en: "Familijna Gra — Polish quiz for iPhone",
+      en: "Family Showdown - a family guessing game for iPhone",
     },
     description: {
       pl: "Familijna Gra — quiz po polsku na iPhone’a. Zgaduj popularne odpowiedzi, graj online lub z botem i zdobywaj punkty dla swojej rodziny.",
-      en: "Familijna Gra — a Polish quiz for iPhone. Guess popular answers, play online or against a bot, and win points for your family.",
+      en: "Family Showdown - the English edition of the family guessing game for iPhone. Guess popular answers, play Solo chapters, duel online or against a bot, and win points for your family.",
     },
   },
   {
     path: "lighter",
-    name: "Lighter Simulator",
+    name: { pl: "Lighter Simulator", en: "Lighter Simulator" },
     defaultLocale: "en",
     image: (locale) => `https://pjanecze.xyz/images/lighter/flame-${locale}.webp`,
-    card: "summary",
+    card: () => "summary",
     title: {
       pl: "Lighter Simulator - realistyczna zapalniczka na iPhone’a",
       en: "Lighter Simulator - a realistic lighter for iPhone",
@@ -68,6 +69,7 @@ for (const page of pages) {
   for (const route of [page.path, `en/${page.path}`, `pl/${page.path}`]) {
     const locale = route.startsWith("en/") ? "en" : route.startsWith("pl/") ? "pl" : page.defaultLocale
     const description = page.description[locale]
+    const image = page.image(locale)
     const file = join("dist", route, "index.html")
     const url = `https://pjanecze.xyz/${locale}/${page.path}`
     const html = readFileSync(file, "utf8")
@@ -77,12 +79,11 @@ for (const page of pages) {
       .replace("</head>", `    <link rel="canonical" href="${url}" />
     <link rel="alternate" hreflang="pl" href="https://pjanecze.xyz/pl/${page.path}" />
     <link rel="alternate" hreflang="en" href="https://pjanecze.xyz/en/${page.path}" />
-    <meta property="og:title" content="${page.name}" />
+    <meta property="og:title" content="${page.name[locale]}" />
     <meta property="og:description" content="${description}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="${url}" />
-    <meta property="og:image" content="${page.image(locale)}" />
-    <meta name="twitter:card" content="${page.card}" />
+${image ? `    <meta property="og:image" content="${image}" />\n` : ""}    <meta name="twitter:card" content="${page.card(locale)}" />
   </head>`)
     writeFileSync(file, html)
   }
