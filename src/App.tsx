@@ -346,8 +346,10 @@ function LighterSupportPage({ locale }: { locale: Locale }) {
       </section>
       <section id="policy" className="scroll-mt-8">
         <h2 className="mb-4 text-xl font-light text-foreground">{t.privacyTitle}</h2>
+        <p className="mb-4 text-sm">{t.privacyUpdated}</p>
         <div className="space-y-4">
           <p>{t.privacyBeforeLink}<GooglePrivacyLink>{t.privacyLink}</GooglePrivacyLink>{t.privacyAfterLink}</p>
+          <p>{t.privacyUsage}</p>
           <p>{t.privacyLimits}</p>
         </div>
       </section>

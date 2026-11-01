@@ -107,10 +107,13 @@ export const content = {
       contact: "Having issues with the app or have suggestions for new themes? I'd love to hear from you.",
       email: "Email",
       privacyTitle: "Privacy Policy",
+      privacyUpdated: "Last updated: November 1, 2026",
       privacyBeforeLink:
         "Lighter uses Firebase Analytics to understand aggregate feature usage and Firebase Crashlytics to diagnose crashes and recoverable errors. Firebase may process device, app, usage, and diagnostic information as described in ",
       privacyLink: "Google's privacy documentation",
       privacyAfterLink: ".",
+      privacyUsage:
+        "Usage events distinguish whether a lighter is displayed in 2D or 3D and record actions such as opening or closing the lid and lighting the flame.",
       privacyLimits:
         "Lighter does not send imported images, creator names, theme names, or CloudKit record identifiers to these services. It does not use advertising identifiers or cross-app tracking.",
       requirementsTitle: "Requirements",
@@ -339,10 +342,13 @@ export const content = {
       contact: "Masz problem z aplikacją lub pomysł na nowy motyw? Napisz do mnie.",
       email: "E-mail",
       privacyTitle: "Polityka prywatności",
+      privacyUpdated: "Ostatnia aktualizacja: 1 listopada 2026 r.",
       privacyBeforeLink:
         "Lighter korzysta z Firebase Analytics, aby poznawać zbiorcze dane o użyciu funkcji, oraz z Firebase Crashlytics, aby diagnozować awarie i błędy możliwe do obsłużenia. Firebase może przetwarzać dane o urządzeniu, aplikacji, korzystaniu z niej oraz dane diagnostyczne, zgodnie z ",
       privacyLink: "dokumentacją Google dotyczącą prywatności",
       privacyAfterLink: ".",
+      privacyUsage:
+        "Zdarzenia dotyczące użycia rozróżniają, czy zapalniczka jest wyświetlana w 2D czy 3D, i obejmują takie działania jak otwieranie i zamykanie wieczka oraz zapalanie płomienia.",
       privacyLimits:
         "Lighter nie wysyła do tych usług importowanych obrazów, nazw twórców, nazw motywów ani identyfikatorów rekordów CloudKit. Nie korzysta z identyfikatorów reklamowych ani ze śledzenia między aplikacjami.",
       requirementsTitle: "Wymagania",
