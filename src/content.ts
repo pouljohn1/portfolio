@@ -171,9 +171,9 @@ export const content = {
       ],
       details: [
         ["Solo", "Five chapters and 30 challenges: Around the House, Just Outside the Door, Out Shopping, On the Road, and Let's Celebrate. Earn up to three stars on a challenge. Chapter 1 is free, and each chapter opens when the one before it is complete."],
-        ["Duel", "Play against another family online through Game Center, with its own English ranking, or choose Play locally and face a bot right away. Duel has 84 questions about food, home, travel, pets and everyday habits."],
+        ["Duel", "Play against another family online through Game Center, with its own English ranking, or choose Play locally and face a bot right away. Duel has 83 questions about food, home, travel, pets and everyday habits."],
         ["Full game", "A one-time purchase opens chapters 2-5 of the Solo campaign and unlocks unlimited hints, with no ads for hints."],
-        ["Hints", "A hint shows the next letter of a hidden answer and never costs a life or a star. One Solo hint each day is free, and you can watch a rewarded ad for another one."],
+        ["Hints", "A hint reveals a random hidden answer and never costs a life, but that attempt can earn at most two stars. One Solo hint each day is free, and you can watch a rewarded ad for another one."],
       ],
       gameLanguage: "Family Showdown is the English edition. The game and all questions are in English. The Polish edition is called Familijna Gra and is available in the Polish App Store. Solo and bot matches work offline; online play requires internet, Game Center sign-in and a family name reserved through iCloud.",
       footerName: "Family Showdown",
@@ -187,7 +187,7 @@ export const content = {
       contactTitle: "Contact",
       contactBeforeEmail: "If you have a problem with the game or a question about your data, email ",
       privacyTitle: "Privacy Policy",
-      updated: "Last updated: October 26, 2026",
+      updated: "Last updated: November 1, 2026",
       appliesTo: "Applies to app version",
       ownerTitle: "Who is responsible for the app",
       ownerBeforeEmail: "Family Showdown (Familijna Gra in Poland) is operated by Paweł Janeczek. For privacy questions, contact me at ",
@@ -205,7 +205,7 @@ export const content = {
       googleLink: "Google's documentation",
       adsTitle: "Ads",
       ads:
-        "In Solo, one hint per day is free; you can choose to watch a rewarded ad for another hint. Full Game owners use hints without ads. Google AdMob starts when you request an ad-funded hint; Google’s consent service also runs at launch and when you open privacy choices. Google may process your IP address (to estimate general location), app- or developer-scoped device identifiers, information about ads shown and interactions with them, and diagnostic and performance data to show ads, measure them, and prevent fraud. The app does not request App Tracking Transparency permission and does not obtain an authorized advertising identifier (IDFA). Where required, Google’s form gathers a privacy choice before an ad request. The app requests an ad only when Google’s SDK permits it. A refusal may still allow limited ads, and does not itself earn a hint. A hint is granted only when the ad reports the reward was earned. No ad, early dismissal, or no reward means no extra hint. Where available, you can change your choice in Settings → Privacy choices. We ask Google to limit ads to a parental-guidance content rating and apply category blocks; these filters cannot guarantee that every ad suits every audience. We do not share entered answers, family names, or player identifiers with Google AdMob.",
+        "In Solo, one hint per day is free; you can choose to watch a rewarded ad for another hint. Full Game owners use hints without ads. Google AdMob starts when you request an ad-funded hint; Google’s consent service also runs at launch and when you open privacy choices. Google may process your IP address (to estimate general location), app- or developer-scoped device identifiers, information about ads shown and interactions with them, and diagnostic and performance data to show ads, measure them, and prevent fraud. The app does not request App Tracking Transparency permission and does not obtain an authorized advertising identifier (IDFA). Where required, Google’s form gathers a privacy choice before an ad request. The app requests an ad only when Google’s SDK permits it. A refusal may still allow limited ads, and does not itself earn a hint. A hint is granted only when the ad reports the reward was earned. No ad, early dismissal, or no reward means no extra hint. Where available, you can change your choice in Settings → Privacy choices. In US states covered by Google’s US state regulations message, Privacy choices opens the form where you can opt out of the sale or sharing of your personal information for advertising. We ask Google to limit ads to a parental-guidance content rating and apply category blocks; these filters cannot guarantee that every ad suits every audience. We do not share entered answers, family names, or player identifiers with Google AdMob.",
       adsBeforeLink: "Read more about how Google uses data in ",
       adsLink: "Google's policy",
       purchasesTitle: "In-app purchases",
@@ -414,7 +414,7 @@ export const content = {
       contactTitle: "Kontakt",
       contactBeforeEmail: "Jeśli masz problem z grą lub pytanie dotyczące danych, napisz na ",
       privacyTitle: "Polityka prywatności",
-      updated: "Ostatnia aktualizacja: 26 października 2026 r.",
+      updated: "Ostatnia aktualizacja: 1 listopada 2026 r.",
       appliesTo: "Dotyczy wersji aplikacji",
       ownerTitle: "Kto odpowiada za aplikację",
       ownerBeforeEmail:
@@ -433,7 +433,7 @@ export const content = {
       googleLink: "dokumentacji Google",
       adsTitle: "Reklamy",
       ads:
-        "W Solo jedna podpowiedź dziennie jest darmowa; kolejną możesz otrzymać po dobrowolnym obejrzeniu reklamy nagradzanej. Po zakupie Pełnej gry podpowiedzi działają bez reklam. Google AdMob uruchamia się po wybraniu podpowiedzi za reklamę; usługa zgód Google działa też przy uruchomieniu aplikacji i otwarciu ustawień prywatności. Google może przetwarzać adres IP (do określenia przybliżonej lokalizacji), identyfikatory urządzenia przypisane do aplikacji lub dewelopera, informacje o wyświetlonych reklamach i interakcjach z nimi oraz dane diagnostyczne i wydajnościowe, aby wyświetlać reklamy, mierzyć ich skuteczność i zapobiegać nadużyciom. Aplikacja nie prosi o zgodę App Tracking Transparency i nie uzyskuje autoryzowanego identyfikatora reklamowego (IDFA). Gdy jest to wymagane, formularz Google zbiera wybór przed żądaniem reklamy. Aplikacja żąda reklamy tylko wtedy, gdy SDK Google na to pozwala. Odmowa może nadal pozwalać na ograniczone reklamy i sama nie przyznaje podpowiedzi. Podpowiedź przyznajemy wyłącznie po potwierdzeniu nagrody przez reklamę. Brak reklamy, wcześniejsze zamknięcie lub brak nagrody oznacza brak dodatkowej podpowiedzi. Tam, gdzie opcja jest dostępna, wybór zmienisz przez Ustawienia → Ustawienia prywatności. Prosimy Google o limit treści reklam do poziomu wymagającego wskazówek rodzicielskich i stosujemy blokady kategorii; filtry nie gwarantują dopasowania każdej reklamy do każdego odbiorcy. Nie przekazujemy Google AdMob wpisywanych odpowiedzi, nazw rodzin ani identyfikatorów graczy.",
+        "W Solo jedna podpowiedź dziennie jest darmowa; kolejną możesz otrzymać po dobrowolnym obejrzeniu reklamy nagradzanej. Po zakupie Pełnej gry podpowiedzi działają bez reklam. Google AdMob uruchamia się po wybraniu podpowiedzi za reklamę; usługa zgód Google działa też przy uruchomieniu aplikacji i otwarciu ustawień prywatności. Google może przetwarzać adres IP (do określenia przybliżonej lokalizacji), identyfikatory urządzenia przypisane do aplikacji lub dewelopera, informacje o wyświetlonych reklamach i interakcjach z nimi oraz dane diagnostyczne i wydajnościowe, aby wyświetlać reklamy, mierzyć ich skuteczność i zapobiegać nadużyciom. Aplikacja nie prosi o zgodę App Tracking Transparency i nie uzyskuje autoryzowanego identyfikatora reklamowego (IDFA). Gdy jest to wymagane, formularz Google zbiera wybór przed żądaniem reklamy. Aplikacja żąda reklamy tylko wtedy, gdy SDK Google na to pozwala. Odmowa może nadal pozwalać na ograniczone reklamy i sama nie przyznaje podpowiedzi. Podpowiedź przyznajemy wyłącznie po potwierdzeniu nagrody przez reklamę. Brak reklamy, wcześniejsze zamknięcie lub brak nagrody oznacza brak dodatkowej podpowiedzi. Tam, gdzie opcja jest dostępna, wybór zmienisz przez Ustawienia → Ustawienia prywatności. W stanach USA objętych komunikatem Google dotyczącym przepisów stanowych pozycja Ustawienia prywatności otwiera formularz, w którym możesz zrezygnować ze sprzedaży lub udostępniania swoich danych osobowych na potrzeby reklam. Prosimy Google o limit treści reklam do poziomu wymagającego wskazówek rodzicielskich i stosujemy blokady kategorii; filtry nie gwarantują dopasowania każdej reklamy do każdego odbiorcy. Nie przekazujemy Google AdMob wpisywanych odpowiedzi, nazw rodzin ani identyfikatorów graczy.",
       adsBeforeLink: "Więcej o wykorzystaniu danych przez Google znajdziesz w ",
       adsLink: "zasadach Google",
       purchasesTitle: "Zakupy w aplikacji",
