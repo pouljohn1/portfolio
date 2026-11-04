@@ -351,6 +351,7 @@ function LighterSupportPage({ locale }: { locale: Locale }) {
           <p>{t.privacyBeforeLink}<GooglePrivacyLink>{t.privacyLink}</GooglePrivacyLink>{t.privacyAfterLink}</p>
           <p>{t.privacyUsage}</p>
           <p>{t.privacyLimits}</p>
+          <p>{t.privacyPurchases}</p>
         </div>
       </section>
       <section>

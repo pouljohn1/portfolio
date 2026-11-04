@@ -107,7 +107,7 @@ export const content = {
       contact: "Having issues with the app or have suggestions for new themes? I'd love to hear from you.",
       email: "Email",
       privacyTitle: "Privacy Policy",
-      privacyUpdated: "Last updated: November 1, 2026",
+      privacyUpdated: "Last updated: November 4, 2026",
       privacyBeforeLink:
         "Lighter uses Firebase Analytics to understand aggregate feature usage and Firebase Crashlytics to diagnose crashes and recoverable errors. Firebase may process device, app, usage, and diagnostic information as described in ",
       privacyLink: "Google's privacy documentation",
@@ -115,7 +115,9 @@ export const content = {
       privacyUsage:
         "Usage events distinguish whether a lighter is displayed in 2D or 3D and record actions such as opening or closing the lid and lighting the flame.",
       privacyLimits:
-        "Lighter does not send imported images, creator names, theme names, or CloudKit record identifiers to these services. It does not use advertising identifiers or cross-app tracking.",
+        "Lighter does not send imported images, creator names, theme names, or CloudKit record identifiers to these services. It does not use advertising identifiers or cross-app tracking. Lighter's own events do not include a price or a transaction identifier. Firebase Analytics can still record App Store purchases on its own, including the product and the price, when a subscription is bought or renewed.",
+      privacyPurchases:
+        "Lighter Premium is an auto-renewable subscription. Apple processes the purchase and the payment, and Lighter never receives your payment details. The app checks your subscription status on your device through StoreKit. Lighter's own analytics record only where a purchase screen was opened and whether the purchase succeeded, was restored, cancelled, pending or failed.",
       requirementsTitle: "Requirements",
       requirements: ["iOS 16.0 or later", "iPhone (Real device required for motion-sensing physics)"],
     },
@@ -342,7 +344,7 @@ export const content = {
       contact: "Masz problem z aplikacją lub pomysł na nowy motyw? Napisz do mnie.",
       email: "E-mail",
       privacyTitle: "Polityka prywatności",
-      privacyUpdated: "Ostatnia aktualizacja: 1 listopada 2026 r.",
+      privacyUpdated: "Ostatnia aktualizacja: 4 listopada 2026 r.",
       privacyBeforeLink:
         "Lighter korzysta z Firebase Analytics, aby poznawać zbiorcze dane o użyciu funkcji, oraz z Firebase Crashlytics, aby diagnozować awarie i błędy możliwe do obsłużenia. Firebase może przetwarzać dane o urządzeniu, aplikacji, korzystaniu z niej oraz dane diagnostyczne, zgodnie z ",
       privacyLink: "dokumentacją Google dotyczącą prywatności",
@@ -350,7 +352,9 @@ export const content = {
       privacyUsage:
         "Zdarzenia dotyczące użycia rozróżniają, czy zapalniczka jest wyświetlana w 2D czy 3D, i obejmują takie działania jak otwieranie i zamykanie wieczka oraz zapalanie płomienia.",
       privacyLimits:
-        "Lighter nie wysyła do tych usług importowanych obrazów, nazw twórców, nazw motywów ani identyfikatorów rekordów CloudKit. Nie korzysta z identyfikatorów reklamowych ani ze śledzenia między aplikacjami.",
+        "Lighter nie wysyła do tych usług importowanych obrazów, nazw twórców, nazw motywów ani identyfikatorów rekordów CloudKit. Nie korzysta z identyfikatorów reklamowych ani ze śledzenia między aplikacjami. Własne zdarzenia Lightera nie zawierają ceny ani identyfikatora transakcji. Firebase Analytics może jednak samodzielnie rejestrować zakupy w App Store, w tym produkt i cenę, gdy subskrypcja zostanie kupiona albo odnowiona.",
+      privacyPurchases:
+        "Lighter Premium to subskrypcja odnawiana automatycznie. Zakup i płatność obsługuje Apple, a Lighter nigdy nie otrzymuje danych płatniczych. Aplikacja sprawdza status subskrypcji na urządzeniu za pomocą StoreKit. Własna analityka Lightera zapisuje tylko, skąd otwarto ekran zakupu i czy zakup się udał, został przywrócony, anulowany, oczekuje lub się nie powiódł.",
       requirementsTitle: "Wymagania",
       requirements: ["iOS 16.0 lub nowszy", "iPhone (do działania fizyki opartej na ruchu potrzebne jest prawdziwe urządzenie)"],
     },
