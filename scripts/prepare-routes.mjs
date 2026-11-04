@@ -17,6 +17,9 @@ const routes = [
   "lighter",
   "en/lighter",
   "pl/lighter",
+  "cachelift",
+  "en/cachelift",
+  "pl/cachelift",
   "en/familijna-gra-support",
   "pl/familijna-gra-support",
   "familijna-gra-support/1.1",
@@ -32,6 +35,21 @@ for (const route of routes) {
 
 // Give direct visits and link previews the app metadata before JavaScript loads.
 const pages = [
+  {
+    path: "cachelift",
+    name: { pl: "CacheLift", en: "CacheLift" },
+    defaultLocale: "en",
+    image: () => "https://pjanecze.xyz/images/cachelift/icon.webp",
+    card: () => "summary",
+    title: {
+      pl: "CacheLift - odzyskaj miejsce na swoim Macu",
+      en: "CacheLift - reclaim space on your Mac",
+    },
+    description: {
+      pl: "CacheLift - darmowa aplikacja na Maca. Znajdź pamięć podręczną aplikacji, stare pobrane pliki i pozostałości, sprawdź ryzyko i wybierz, co usunąć.",
+      en: "CacheLift - a free macOS app to find app caches, old downloads and unused files, review their risks and choose what to clean.",
+    },
+  },
   {
     path: "familijna-gra",
     name: { pl: "Familijna Gra", en: "Family Showdown" },

@@ -7,14 +7,16 @@ import { Button } from "@/components/ui/button"
 import { content, type Locale } from "./content"
 import { FamilyGamePage } from "./FamilyGamePage"
 import { LighterPage } from "./LighterPage"
+import { CacheLiftPage } from "./CacheLiftPage"
 
-type Page = "home" | "domalert" | "lighter" | "lighterApp" | "family" | "familyGame"
+type Page = "home" | "domalert" | "lighter" | "lighterApp" | "family" | "familyGame" | "cachelift"
 
 function currentPage(pathname: string): Page {
   const path = pathname.replace(/^\/(en|pl)(?=\/|$)/, "").replace(/\/$/, "")
   if (path === "/domalert") return "domalert"
   if (path === "/lighter-support") return "lighter"
   if (path === "/lighter") return "lighterApp"
+  if (path === "/cachelift") return "cachelift"
   if (path === "/familijna-gra") return "familyGame"
   if (path === "/familijna-gra-support" || path === `/familijna-gra-support/${latestFamilyPolicy}`) return "family"
   return "home"
@@ -40,6 +42,7 @@ function localizedPath(locale: Locale, page: Page) {
     domalert: "/domalert",
     lighter: "/lighter-support",
     lighterApp: "/lighter",
+    cachelift: "/cachelift",
     family: "/familijna-gra-support",
     familyGame: "/familijna-gra",
   }[page]
@@ -68,7 +71,7 @@ export function App() {
 
   return (
     <PageShell locale={locale} page={page}>
-      {page === "domalert" ? <DomAlertPage locale={locale} /> : page === "lighter" ? <LighterSupportPage locale={locale} /> : page === "lighterApp" ? <LighterPage locale={locale} /> : page === "familyGame" ? <FamilyGamePage locale={locale} /> : page === "family" ? <FamilySupportPage locale={locale} version={familyPolicyVersion(location.pathname)} /> : <HomePage locale={locale} />}
+      {page === "cachelift" ? <CacheLiftPage locale={locale} /> : page === "domalert" ? <DomAlertPage locale={locale} /> : page === "lighter" ? <LighterSupportPage locale={locale} /> : page === "lighterApp" ? <LighterPage locale={locale} /> : page === "familyGame" ? <FamilyGamePage locale={locale} /> : page === "family" ? <FamilySupportPage locale={locale} version={familyPolicyVersion(location.pathname)} /> : <HomePage locale={locale} />}
     </PageShell>
   )
 }
@@ -148,6 +151,7 @@ function HomePage({ locale }: { locale: Locale }) {
           <PortfolioLink href={localizedPath(locale, "domalert")} title="domalert.pl" description={t.domalert} />
           <PortfolioLink href={localizedPath(locale, "familyGame")} title="Familijna Gra" description={t.family} />
           <PortfolioLink href={localizedPath(locale, "lighterApp")} title="Lighter Simulator" description={t.lighter} />
+          <PortfolioLink href={localizedPath(locale, "cachelift")} title="CacheLift" description={t.cachelift} />
           <PortfolioLink href="https://poliswar.xyz" title="poliswar.xyz" description={t.poliswar} />
         </div>
       </section>
