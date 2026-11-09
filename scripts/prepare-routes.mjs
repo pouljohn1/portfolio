@@ -25,6 +25,9 @@ const routes = [
   "familijna-gra-support/1.1",
   "en/familijna-gra-support/1.1",
   "pl/familijna-gra-support/1.1",
+  "familijna-gra-support/1.2",
+  "en/familijna-gra-support/1.2",
+  "pl/familijna-gra-support/1.2",
 ]
 
 for (const route of routes) {

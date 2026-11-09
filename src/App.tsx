@@ -18,16 +18,18 @@ function currentPage(pathname: string): Page {
   if (path === "/lighter") return "lighterApp"
   if (path === "/cachelift") return "cachelift"
   if (path === "/familijna-gra") return "familyGame"
-  if (path === "/familijna-gra-support" || path === `/familijna-gra-support/${latestFamilyPolicy}`) return "family"
+  if (path === "/familijna-gra-support" || familyPolicyVersions.some((version) => path === `/familijna-gra-support/${version}`)) return "family"
   return "home"
 }
 
 // The unversioned support URL keeps the 1.0 policy linked from the released app; newer policies get their own URL.
-const latestFamilyPolicy = "1.1"
-type FamilyPolicyVersion = "1.0" | typeof latestFamilyPolicy
+// 1.1 also covers app version 1.1.1; 1.2 adds the "Someone's waiting" signal (Convex).
+const familyPolicyVersions = ["1.1", "1.2"] as const
+type FamilyPolicyVersion = "1.0" | (typeof familyPolicyVersions)[number]
 
 function familyPolicyVersion(pathname: string): FamilyPolicyVersion {
-  return pathname.replace(/\/$/, "").endsWith(`/familijna-gra-support/${latestFamilyPolicy}`) ? latestFamilyPolicy : "1.0"
+  const path = pathname.replace(/\/$/, "")
+  return familyPolicyVersions.find((version) => path.endsWith(`/familijna-gra-support/${version}`)) ?? "1.0"
 }
 
 function currentLocale(pathname: string): Locale {
@@ -367,7 +369,9 @@ function LighterSupportPage({ locale }: { locale: Locale }) {
 }
 
 function FamilySupportPage({ locale, version }: { locale: Locale; version: FamilyPolicyVersion }) {
-  const t = version === "1.0" ? { ...content[locale].family, ...content[locale].family.policy10 } : content[locale].family
+  const family = content[locale].family
+  const overrides = version === "1.0" ? family.policy10 : version === "1.1" ? family.policy11 : {}
+  const t = { ...family, ...overrides }
   return (
     <SupportLayout locale={locale}>
       <div>
@@ -397,6 +401,12 @@ function FamilySupportPage({ locale, version }: { locale: Locale; version: Famil
             <p>{t.analytics}</p>
             <p className="mt-3">{t.googleBeforeLink}<GooglePrivacyLink>{t.googleLink}</GooglePrivacyLink>.</p>
           </div>
+          {t.live && (
+            <div>
+              <h3 className="mb-3 text-lg font-light text-foreground">{t.liveTitle}</h3>
+              <p>{t.live}</p>
+            </div>
+          )}
           {t.ads && (
             <div>
               <h3 className="mb-3 text-lg font-light text-foreground">{t.adsTitle}</h3>

@@ -233,7 +233,7 @@ export const content = {
       contactTitle: "Contact",
       contactBeforeEmail: "If you have a problem with the game or a question about your data, email ",
       privacyTitle: "Privacy Policy",
-      updated: "Last updated: November 1, 2026",
+      updated: "Last updated: November 9, 2026",
       appliesTo: "Applies to app version",
       ownerTitle: "Who is responsible for the app",
       ownerBeforeEmail: "Family Showdown (Familijna Gra in Poland) is operated by Paweł Janeczek. For privacy questions, contact me at ",
@@ -257,6 +257,14 @@ export const content = {
       purchasesTitle: "In-app purchases",
       purchases:
         "The Full Game purchase is handled by Apple through the App Store. We do not receive card details or a billing address. The app checks with the App Store whether the purchase is active and stores that information on the device.",
+      liveTitle: "Someone's waiting alerts",
+      live:
+        "When you search for an online opponent, the app tells our signalling service, run by Convex, Inc. in the United States, that someone is searching in your language pool, so players who have the app open can see an anonymous “Someone's waiting” banner and join you through Game Center. To prevent misuse, the app sends Apple's Game Center identity proof. The service checks it with Apple's certificates and keeps only a one-way hash of your Game Center identifier, the language pool and the time. Other players never see who is searching. An entry is deleted when you stop searching, start a match or leave the app, and about 25 seconds after the app stops responding. Counters that limit how often an account can search or join are deleted within two hours. Seeing the banner sends no identifier; as with any online service, Convex processes the connection's IP address to deliver it. You can turn the banner off in Settings. Transfers to the United States are covered by the EU Standard Contractual Clauses in Convex's data processing terms.",
+      // Policy for app versions 1.1 and 1.1.1 at /familijna-gra-support/1.1/.
+      policy11: {
+        updated: "Last updated: November 1, 2026",
+        live: "",
+      },
       // Policy shown at the unversioned URL linked from App Store version 1.0. Empty sections are hidden.
       policy10: {
         title: "Familijna Gra",
@@ -268,6 +276,7 @@ export const content = {
           "We use Firebase Analytics to understand screen usage and game actions, and Firebase Crashlytics to diagnose crashes and errors. These services may process an installation identifier, device, operating system and app information, usage events, and diagnostic data. We do not send entered answers, family names, or player identifiers to Firebase. We do not use advertising identifiers or data for cross-app tracking.",
         ads: "",
         purchases: "",
+        live: "",
       },
       storageTitle: "Storage and your choices",
       storageBeforeEmail:
@@ -506,7 +515,7 @@ export const content = {
       contactTitle: "Kontakt",
       contactBeforeEmail: "Jeśli masz problem z grą lub pytanie dotyczące danych, napisz na ",
       privacyTitle: "Polityka prywatności",
-      updated: "Ostatnia aktualizacja: 1 listopada 2026 r.",
+      updated: "Ostatnia aktualizacja: 9 listopada 2026 r.",
       appliesTo: "Dotyczy wersji aplikacji",
       ownerTitle: "Kto odpowiada za aplikację",
       ownerBeforeEmail:
@@ -531,6 +540,14 @@ export const content = {
       purchasesTitle: "Zakupy w aplikacji",
       purchases:
         "Zakup Pełnej gry obsługuje Apple w App Store. Nie otrzymujemy danych karty ani adresu rozliczeniowego. Aplikacja sprawdza w App Store, czy zakup jest aktywny, i zapisuje tę informację na urządzeniu.",
+      liveTitle: "Powiadomienia „Ktoś szuka rywala”",
+      live:
+        "Gdy szukasz przeciwnika online, aplikacja informuje naszą usługę sygnalizacji, prowadzoną przez Convex, Inc. w Stanach Zjednoczonych, że ktoś szuka gry w Twojej puli językowej. Dzięki temu gracze z otwartą aplikacją widzą anonimowy baner „Ktoś szuka rywala” i mogą dołączyć do Ciebie przez Game Center. Aby zapobiec nadużyciom, aplikacja wysyła potwierdzenie tożsamości Game Center od Apple. Usługa sprawdza je certyfikatami Apple i zapisuje tylko jednokierunkowy skrót identyfikatora Game Center, pulę językową i czas. Inni gracze nie widzą, kto szuka. Wpis jest usuwany, gdy przestajesz szukać, zaczynasz mecz lub wychodzisz z aplikacji, oraz po około 25 sekundach, gdy aplikacja przestanie odpowiadać. Liczniki ograniczające, jak często konto może szukać lub dołączać, są usuwane w ciągu dwóch godzin. Wyświetlanie banera nie wysyła żadnego identyfikatora; jak każda usługa online, Convex przetwarza adres IP połączenia, aby je obsłużyć. Baner możesz wyłączyć w ustawieniach. Przekazywanie danych do Stanów Zjednoczonych zabezpieczają standardowe klauzule umowne UE w warunkach przetwarzania danych Convex.",
+      // Policy for app versions 1.1 and 1.1.1 at /familijna-gra-support/1.1/.
+      policy11: {
+        updated: "Ostatnia aktualizacja: 1 listopada 2026 r.",
+        live: "",
+      },
       // Policy shown at the unversioned URL linked from App Store version 1.0. Empty sections are hidden.
       policy10: {
         updated: "Ostatnia aktualizacja: 28 września 2026 r.",
@@ -539,6 +556,7 @@ export const content = {
           "Korzystamy z Firebase Analytics, aby rozumieć użycie ekranów i działania gry, oraz z Firebase Crashlytics, aby diagnozować awarie i błędy. Usługi te mogą przetwarzać identyfikator instalacji, informacje o urządzeniu, systemie i aplikacji, zdarzenia użycia oraz dane diagnostyczne. Do Firebase nie wysyłamy wpisywanych odpowiedzi, nazw rodzin ani identyfikatorów graczy. Nie używamy identyfikatora reklamowego ani danych do śledzenia między aplikacjami.",
         ads: "",
         purchases: "",
+        live: "",
       },
       storageTitle: "Przechowywanie i Twoje wybory",
       storageBeforeEmail:
