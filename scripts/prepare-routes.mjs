@@ -28,6 +28,9 @@ const routes = [
   "familijna-gra-support/1.2",
   "en/familijna-gra-support/1.2",
   "pl/familijna-gra-support/1.2",
+  "familijna-gra-support/1.3",
+  "en/familijna-gra-support/1.3",
+  "pl/familijna-gra-support/1.3",
 ]
 
 for (const route of routes) {

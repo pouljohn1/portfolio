@@ -23,8 +23,8 @@ function currentPage(pathname: string): Page {
 }
 
 // The unversioned support URL keeps the 1.0 policy linked from the released app; newer policies get their own URL.
-// 1.1 also covers app version 1.1.1; 1.2 adds the "Someone's waiting" signal (Convex).
-const familyPolicyVersions = ["1.1", "1.2"] as const
+// 1.1 also covers app version 1.1.1; 1.2 adds the "Someone's waiting" signal (Convex); 1.3 adds answer statistics and the Daily Question.
+const familyPolicyVersions = ["1.1", "1.2", "1.3"] as const
 type FamilyPolicyVersion = "1.0" | (typeof familyPolicyVersions)[number]
 
 function familyPolicyVersion(pathname: string): FamilyPolicyVersion {
@@ -370,7 +370,7 @@ function LighterSupportPage({ locale }: { locale: Locale }) {
 
 function FamilySupportPage({ locale, version }: { locale: Locale; version: FamilyPolicyVersion }) {
   const family = content[locale].family
-  const overrides = version === "1.0" ? family.policy10 : version === "1.1" ? family.policy11 : {}
+  const overrides = version === "1.0" ? family.policy10 : version === "1.1" ? family.policy11 : version === "1.2" ? family.policy12 : {}
   const t = { ...family, ...overrides }
   return (
     <SupportLayout locale={locale}>
@@ -405,6 +405,18 @@ function FamilySupportPage({ locale, version }: { locale: Locale; version: Famil
             <div>
               <h3 className="mb-3 text-lg font-light text-foreground">{t.liveTitle}</h3>
               <p>{t.live}</p>
+            </div>
+          )}
+          {t.stats && (
+            <div>
+              <h3 className="mb-3 text-lg font-light text-foreground">{t.statsTitle}</h3>
+              <p>{t.stats}</p>
+            </div>
+          )}
+          {t.daily && (
+            <div>
+              <h3 className="mb-3 text-lg font-light text-foreground">{t.dailyTitle}</h3>
+              <p>{t.daily}</p>
             </div>
           )}
           {t.ads && (

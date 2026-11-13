@@ -233,7 +233,7 @@ export const content = {
       contactTitle: "Contact",
       contactBeforeEmail: "If you have a problem with the game or a question about your data, email ",
       privacyTitle: "Privacy Policy",
-      updated: "Last updated: November 9, 2026",
+      updated: "Last updated: November 12, 2026",
       appliesTo: "Applies to app version",
       ownerTitle: "Who is responsible for the app",
       ownerBeforeEmail: "Family Showdown (Familijna Gra in Poland) is operated by Paweł Janeczek. For privacy questions, contact me at ",
@@ -260,10 +260,24 @@ export const content = {
       liveTitle: "Someone's waiting alerts",
       live:
         "When you search for an online opponent, the app tells our signalling service, run by Convex, Inc. in the United States, that someone is searching in your language pool, so players who have the app open can see an anonymous “Someone's waiting” banner and join you through Game Center. To prevent misuse, the app sends Apple's Game Center identity proof. The service checks it with Apple's certificates and keeps only a one-way hash of your Game Center identifier, the language pool and the time. Other players never see who is searching. An entry is deleted when you stop searching, start a match or leave the app, and about 25 seconds after the app stops responding. Counters that limit how often an account can search or join are deleted within two hours. Seeing the banner sends no identifier; as with any online service, Convex processes the connection's IP address to deliver it. You can turn the banner off in Settings. Transfers to the United States are covered by the EU Standard Contractual Clauses in Convex's data processing terms.",
+      statsTitle: "Answer statistics",
+      stats:
+        "To improve questions and the list of accepted answers, the app sends anonymous, aggregated answer statistics to our service run by Convex, Inc. in the United States: for each question, the number of attempts and answers, which answer cards were found, and the text of wrong answers in normalized form (lowercase, without diacritics or punctuation). Only guesses made on your device are counted: in Solo, in the Daily Question and in Duels against the bot; in online Duels, the host's device reports the guesses of both players. The statistics contain no player, Game Center, iCloud, device or match identifier, and the service keeps only totals per question and per wrong answer, with the time each answer was last seen. Answers longer than 60 characters or containing five or more digits in a row are never sent. As with any online service, Convex processes the connection's IP address to deliver it. Transfers to the United States are covered by the EU Standard Contractual Clauses in Convex's data processing terms.",
+      dailyTitle: "Daily Question",
+      daily:
+        "The day's boards are downloaded from our content server, like question packs; the request contains no player data. Your daily results, streak and reminder settings stay on your device. If you turn on the reminder, the app schedules a local notification on your device and sends nothing to us. When you are signed in to Game Center, your best streak and your weekly Daily Question score are reported to Game Center leaderboards, where other players can see them with your Game Center name.",
+      // Policy for app version 1.2 at /familijna-gra-support/1.2/.
+      policy12: {
+        updated: "Last updated: November 9, 2026",
+        stats: "",
+        daily: "",
+      },
       // Policy for app versions 1.1 and 1.1.1 at /familijna-gra-support/1.1/.
       policy11: {
         updated: "Last updated: November 1, 2026",
         live: "",
+        stats: "",
+        daily: "",
       },
       // Policy shown at the unversioned URL linked from App Store version 1.0. Empty sections are hidden.
       policy10: {
@@ -277,6 +291,8 @@ export const content = {
         ads: "",
         purchases: "",
         live: "",
+        stats: "",
+        daily: "",
       },
       storageTitle: "Storage and your choices",
       storageBeforeEmail:
@@ -515,7 +531,7 @@ export const content = {
       contactTitle: "Kontakt",
       contactBeforeEmail: "Jeśli masz problem z grą lub pytanie dotyczące danych, napisz na ",
       privacyTitle: "Polityka prywatności",
-      updated: "Ostatnia aktualizacja: 9 listopada 2026 r.",
+      updated: "Ostatnia aktualizacja: 12 listopada 2026 r.",
       appliesTo: "Dotyczy wersji aplikacji",
       ownerTitle: "Kto odpowiada za aplikację",
       ownerBeforeEmail:
@@ -543,10 +559,24 @@ export const content = {
       liveTitle: "Powiadomienia „Ktoś szuka rywala”",
       live:
         "Gdy szukasz przeciwnika online, aplikacja informuje naszą usługę sygnalizacji, prowadzoną przez Convex, Inc. w Stanach Zjednoczonych, że ktoś szuka gry w Twojej puli językowej. Dzięki temu gracze z otwartą aplikacją widzą anonimowy baner „Ktoś szuka rywala” i mogą dołączyć do Ciebie przez Game Center. Aby zapobiec nadużyciom, aplikacja wysyła potwierdzenie tożsamości Game Center od Apple. Usługa sprawdza je certyfikatami Apple i zapisuje tylko jednokierunkowy skrót identyfikatora Game Center, pulę językową i czas. Inni gracze nie widzą, kto szuka. Wpis jest usuwany, gdy przestajesz szukać, zaczynasz mecz lub wychodzisz z aplikacji, oraz po około 25 sekundach, gdy aplikacja przestanie odpowiadać. Liczniki ograniczające, jak często konto może szukać lub dołączać, są usuwane w ciągu dwóch godzin. Wyświetlanie banera nie wysyła żadnego identyfikatora; jak każda usługa online, Convex przetwarza adres IP połączenia, aby je obsłużyć. Baner możesz wyłączyć w ustawieniach. Przekazywanie danych do Stanów Zjednoczonych zabezpieczają standardowe klauzule umowne UE w warunkach przetwarzania danych Convex.",
+      statsTitle: "Statystyki odpowiedzi",
+      stats:
+        "Aby poprawiać pytania i listę akceptowanych odpowiedzi, aplikacja wysyła anonimowe, zagregowane statystyki odpowiedzi do naszej usługi prowadzonej przez Convex, Inc. w Stanach Zjednoczonych: dla każdego pytania liczbę podejść i odpowiedzi, odkryte karty oraz treść błędnych odpowiedzi w znormalizowanej postaci (małe litery, bez polskich znaków i interpunkcji). Liczymy tylko strzały z Twojego urządzenia: w Solo, w pytaniu dnia i w pojedynkach z botem; w pojedynkach online urządzenie gospodarza przekazuje strzały obu graczy. Statystyki nie zawierają identyfikatora gracza, Game Center, iCloud, urządzenia ani meczu, a usługa przechowuje tylko sumy dla pytania i dla każdej błędnej odpowiedzi wraz z czasem jej ostatniego wystąpienia. Odpowiedzi dłuższe niż 60 znaków lub zawierające ciąg co najmniej pięciu cyfr nigdy nie są wysyłane. Jak każda usługa online, Convex przetwarza adres IP połączenia, aby je obsłużyć. Przekazywanie danych do Stanów Zjednoczonych zabezpieczają standardowe klauzule umowne UE w warunkach przetwarzania danych Convex.",
+      dailyTitle: "Pytanie dnia",
+      daily:
+        "Plansze na kolejne dni aplikacja pobiera z naszego serwera treści, tak jak paczki pytań; zapytanie nie zawiera danych gracza. Twoje wyniki, seria i ustawienia przypomnienia zostają na urządzeniu. Jeśli włączysz przypomnienie, aplikacja planuje lokalne powiadomienie na urządzeniu i nic do nas nie wysyła. Gdy jesteś zalogowany w Game Center, najdłuższa seria i tygodniowy wynik pytania dnia trafiają do rankingów Game Center, gdzie inni gracze widzą je z Twoją nazwą Game Center.",
+      // Policy for app version 1.2 at /familijna-gra-support/1.2/.
+      policy12: {
+        updated: "Ostatnia aktualizacja: 9 listopada 2026 r.",
+        stats: "",
+        daily: "",
+      },
       // Policy for app versions 1.1 and 1.1.1 at /familijna-gra-support/1.1/.
       policy11: {
         updated: "Ostatnia aktualizacja: 1 listopada 2026 r.",
         live: "",
+        stats: "",
+        daily: "",
       },
       // Policy shown at the unversioned URL linked from App Store version 1.0. Empty sections are hidden.
       policy10: {
@@ -557,6 +587,8 @@ export const content = {
         ads: "",
         purchases: "",
         live: "",
+        stats: "",
+        daily: "",
       },
       storageTitle: "Przechowywanie i Twoje wybory",
       storageBeforeEmail:

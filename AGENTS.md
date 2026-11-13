@@ -15,7 +15,8 @@ Nie zmieniaj ani nie usuwaj tych tras bez aktualizacji App Store Connect i aplik
 
 - `/familijna-gra-support/` - wsparcie i polityka prywatności Familijnej Gry 1.0 (`#policy`), podpięte w ASC i w wydanej aplikacji.
 - `/familijna-gra-support/1.1/` - ta sama strona z polityką dla wersji 1.1 i 1.1.1 aplikacji.
-- `/familijna-gra-support/1.2/` - polityka dla wersji 1.2 (sygnał „Ktoś szuka rywala” przez Convex); aplikacja od tej wersji linkuje tutaj.
+- `/familijna-gra-support/1.2/` - polityka dla wersji 1.2 (sygnał „Ktoś szuka rywala” przez Convex).
+- `/familijna-gra-support/1.3/` - polityka dla wersji 1.3 (anonimowe statystyki odpowiedzi w Convex, pytanie dnia); aplikacja od tej wersji linkuje tutaj.
 
 Polityka Familijnej Gry jest wersjonowana, bo wydana aplikacja i jej listing muszą wskazywać politykę zgodną z tym, co robi dana wersja. Najnowsza treść jest w `content.<locale>.family`; starsze wersje to obiekty nadpisań (np. `policy10`), a pusta sekcja jest ukrywana. Wersję i jej trasę wybierają `latestFamilyPolicy` i `familyPolicyVersion` w `src/App.tsx`. Zmiana polityki dla nowej wersji aplikacji: dodaj nową trasę (także w `prepare-routes.mjs`), a dotychczasową treść zachowaj jako nadpisania pod jej dotychczasowym adresem.
 - `/familijna-gra/` - marketing URL Familijnej Gry. AdMob szuka `app-ads.txt` w tej domenie.
