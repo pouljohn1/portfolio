@@ -19,7 +19,7 @@ export function LighterPage({ locale }: { locale: Locale }) {
           <h1 id="lighter-title" className="text-5xl font-extralight tracking-tight md:text-6xl">{t.title}</h1>
           <p className="mb-5 mt-5 text-3xl font-semibold tracking-tight">{t.headline}</p>
           <p className="max-w-md text-base leading-relaxed text-muted-foreground">{t.introduction}</p>
-          <a href="https://apps.apple.com/us/app/lighter-simulator/id6758013623" target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-4 rounded-xl bg-foreground px-5 py-3.5 text-background transition-opacity hover:opacity-80">
+          <a href={`https://apps.apple.com/${locale === "pl" ? "pl" : "us"}/app/id6758013623`} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex items-center gap-4 rounded-xl bg-foreground px-5 py-3.5 text-background transition-opacity hover:opacity-80">
             <svg viewBox="0 0 24 24" fill="currentColor" className="size-7" aria-hidden="true"><path d="M17.05 12.04c.02 2.96 2.59 3.95 2.62 3.97-.02.07-.41 1.41-1.36 2.8-.82 1.2-1.67 2.4-3.01 2.43-1.32.03-1.75-.78-3.26-.78-1.5 0-1.98.75-3.23.81-1.3.05-2.28-1.3-3.11-2.5-1.7-2.46-3-6.96-1.25-10 .87-1.51 2.43-2.47 4.12-2.49 1.29-.02 2.5.87 3.28.87.78 0 2.24-1.08 3.77-.92.64.03 2.46.26 3.63 1.97-.1.06-2.17 1.27-2.2 3.84ZM14.57 4.59c.69-.84 1.15-2.01 1.02-3.17-.99.04-2.2.66-2.91 1.5-.64.74-1.21 1.93-1.06 3.06 1.1.09 2.23-.56 2.95-1.39Z" /></svg>
             <span><span className="block text-[11px] leading-tight">{t.download}</span><span className="block text-xl font-medium leading-tight">App Store</span></span>
             <ArrowUpRight className="size-4" aria-hidden="true" />
@@ -30,8 +30,32 @@ export function LighterPage({ locale }: { locale: Locale }) {
           </ul>
         </div>
         <figure className="mx-auto w-full max-w-[340px] overflow-hidden rounded-[1.8rem] bg-[#1c1410]">
-          <img src={`/images/lighter/flame-${locale}.webp`} width="860" height="1869" alt={t.heroAlt} fetchPriority="high" className="block h-auto w-full" />
+          <img src={`/images/lighter/flame-${locale}.webp`} width="860" height="1867" alt={t.heroAlt} fetchPriority="high" className="block h-auto w-full" />
         </figure>
+      </section>
+
+      <section className="mt-20 grid items-center gap-10 rounded-3xl border border-border bg-secondary/30 p-6 sm:p-10 md:mt-24 md:grid-cols-[0.85fr_1.15fr] md:gap-14" aria-labelledby="lighter-preview">
+        <figure className="mx-auto w-full max-w-[280px]">
+          <video key={locale} controls playsInline preload="none" poster={`/images/lighter/preview-${locale}.webp`} width="720" height="1560" aria-label={t.videoLabel} aria-describedby="lighter-preview-caption" className="block h-auto w-full rounded-2xl bg-black">
+            <source src={`/videos/lighter/preview-${locale}.mp4`} type="video/mp4" />
+            <a href={`/videos/lighter/preview-${locale}.mp4`}>{t.videoFallback}</a>
+          </video>
+          <figcaption id="lighter-preview-caption" className="mt-3 text-center text-xs text-muted-foreground">{t.videoCaption}</figcaption>
+        </figure>
+        <div>
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t.videoEyebrow}</p>
+          <h2 id="lighter-preview" className="text-3xl font-light tracking-tight sm:text-4xl">{t.videoTitle}</h2>
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{t.videoDescription}</p>
+          <dl className="mt-8 space-y-6">
+            {t.features.map(([title, description]) => (
+              <div key={title}>
+                <dt className="text-base font-medium">{title}</dt>
+                <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-8 border-t border-border pt-5 text-xs leading-relaxed text-muted-foreground">{t.premium}</p>
+        </div>
       </section>
 
       <section className="mt-20 border-t border-border pt-10 md:mt-24" aria-labelledby="lighter-how">
@@ -56,7 +80,7 @@ export function LighterPage({ locale }: { locale: Locale }) {
         <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible">
           {t.screenshots.map(({ image, title, description, alt }) => (
             <figure key={image} className="min-w-0 shrink-0 basis-[76%] snap-start sm:basis-auto">
-              <img src={`/images/lighter/${image}-${locale}.webp`} width="860" height="1869" alt={alt} loading="lazy" decoding="async" className="block h-auto w-full rounded-xl bg-[#1c1410] sm:rounded-2xl" />
+              <img src={`/images/lighter/${image}-${locale}.webp`} width="860" height="1867" alt={alt} loading="lazy" decoding="async" className="block h-auto w-full rounded-xl bg-[#1c1410] sm:rounded-2xl" />
               <figcaption className="mt-4"><h3 className="text-sm font-medium sm:text-base">{title}</h3><p className="mt-2 text-xs leading-relaxed text-muted-foreground sm:text-sm">{description}</p></figcaption>
             </figure>
           ))}

@@ -83,8 +83,8 @@ const pages = [
       en: "Lighter Simulator - a realistic lighter for iPhone",
     },
     description: {
-      pl: "Lighter Simulator - realistyczna wirtualna zapalniczka na iPhone’a z płomieniem reagującym na ruch, gotowymi motywami i Studio na własne projekty.",
-      en: "Lighter Simulator - a realistic virtual lighter for iPhone with a flame that reacts to tilt, ready-made themes and a Studio for your own designs.",
+      pl: "Lighter Simulator - zapalniczki 3D, palniki Twin Jet i Studio do własnych projektów na iPhone’a i iPada.",
+      en: "Lighter Simulator - 3D lighters, Twin Jet torches and a Studio for your own designs on iPhone and iPad.",
     },
   },
 ]
