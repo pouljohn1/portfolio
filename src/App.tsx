@@ -23,8 +23,9 @@ function currentPage(pathname: string): Page {
 }
 
 // The unversioned support URL keeps the 1.0 policy linked from the released app; newer policies get their own URL.
-// 1.1 also covers app version 1.1.1; 1.2 adds the "Someone's waiting" signal (Convex); 1.3 adds answer statistics and the Daily Question.
-const familyPolicyVersions = ["1.1", "1.2", "1.3"] as const
+// 1.1 also covers app version 1.1.1; 1.2 adds the "Someone's waiting" signal (Convex); 1.3 adds answer statistics and the Daily Question;
+// 1.5 adds the family avatar, the public family ID and the family link on the Daily Question leaderboards.
+const familyPolicyVersions = ["1.1", "1.2", "1.3", "1.5"] as const
 type FamilyPolicyVersion = "1.0" | (typeof familyPolicyVersions)[number]
 
 function familyPolicyVersion(pathname: string): FamilyPolicyVersion {
@@ -370,7 +371,7 @@ function LighterSupportPage({ locale }: { locale: Locale }) {
 
 function FamilySupportPage({ locale, version }: { locale: Locale; version: FamilyPolicyVersion }) {
   const family = content[locale].family
-  const overrides = version === "1.0" ? family.policy10 : version === "1.1" ? family.policy11 : version === "1.2" ? family.policy12 : {}
+  const overrides = version === "1.0" ? family.policy10 : version === "1.1" ? family.policy11 : version === "1.2" ? family.policy12 : version === "1.3" ? family.policy13 : {}
   const t = { ...family, ...overrides }
   return (
     <SupportLayout locale={locale}>
