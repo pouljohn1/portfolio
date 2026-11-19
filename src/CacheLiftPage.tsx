@@ -1,4 +1,4 @@
-import { AppWindow, ArrowLeft, ArrowUpRight, Check, Code2, Download, Layers3, Mail } from "lucide-react"
+import { AppWindow, ArrowLeft, ArrowUpRight, Check, Clock, Code2, Download, Layers3, Mail } from "lucide-react"
 import { Link } from "react-router"
 
 import { Button } from "@/components/ui/button"
@@ -8,7 +8,7 @@ import { content, type Locale } from "./content"
 const cacheLiftRelease: { downloadUrl: string | null } = {
   downloadUrl: "https://github.com/pouljohn1/cachelift-releases/releases/latest/download/CacheLift.dmg",
 }
-const featureIcons = [Layers3, Download, AppWindow, Code2]
+const featureIcons = [Layers3, Download, AppWindow, Code2, Clock]
 
 export function CacheLiftPage({ locale }: { locale: Locale }) {
   const t = content[locale].cachelift
@@ -67,6 +67,30 @@ export function CacheLiftPage({ locale }: { locale: Locale }) {
             </li>
           ))}
         </ol>
+      </section>
+
+      <section className="mt-20" aria-labelledby="cachelift-gallery">
+        <h2 id="cachelift-gallery" className="mb-3 text-2xl font-light tracking-tight">{t.galleryTitle}</h2>
+        <p className="mb-8 max-w-xl text-sm leading-relaxed text-muted-foreground">{t.galleryDescription}</p>
+        <div className="grid gap-12">
+          {t.screenshots.map(({ image, title, description, alt }) => (
+            <figure key={image}>
+              <img
+                src={`/images/cachelift/${image}.webp`}
+                width="1440"
+                height="960"
+                alt={alt}
+                loading="lazy"
+                decoding="async"
+                className="block h-auto w-full rounded-xl border border-border bg-background"
+              />
+              <figcaption className="mt-4 max-w-2xl">
+                <h3 className="text-base font-medium">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </section>
 
       <section className="mt-20" aria-labelledby="cachelift-features">

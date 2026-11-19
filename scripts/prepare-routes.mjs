@@ -45,8 +45,8 @@ const pages = [
     path: "cachelift",
     name: { pl: "CacheLift", en: "CacheLift" },
     defaultLocale: "en",
-    image: () => "https://pjanecze.xyz/images/cachelift/icon.webp",
-    card: () => "summary",
+    image: () => "https://pjanecze.xyz/images/cachelift/scan.webp",
+    card: () => "summary_large_image",
     title: {
       pl: "CacheLift - odzyskaj miejsce na swoim Macu",
       en: "CacheLift - reclaim space on your Mac",
