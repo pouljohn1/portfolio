@@ -198,7 +198,6 @@ export const content = {
       videoTitle: "A little fire. A lot to play with.",
       videoDescription: "Watch the App Store preview, then explore the latest lighters and tools in the app. Play with sound to hear the lid and flint wheel.",
       videoLabel: "Lighter Simulator App Store preview",
-      videoCaption: "App Store preview · 29 seconds · Sound on",
       videoFallback: "Download the preview video",
       features: [
         ["Turn it around in 3D", "Explore the case from every side, flip the hinged lid and watch the flame respond to tilt. Try Volcanic Crust, Living Moss, Gold Dragon and more."],
@@ -539,7 +538,6 @@ export const content = {
       videoTitle: "Mały płomień. Dużo zabawy.",
       videoDescription: "Obejrzyj film z App Store, a potem odkryj najnowsze zapalniczki i narzędzia w aplikacji. Włącz dźwięk, by usłyszeć klapkę i krzesiwo.",
       videoLabel: "Film prezentujący Lighter Simulator z App Store",
-      videoCaption: "Film z App Store · 29 sekund · Włącz dźwięk",
       videoFallback: "Pobierz film prezentujący aplikację",
       features: [
         ["Obejrzyj ją z każdej strony", "Obracaj zapalniczkę w 3D, otwieraj klapkę i obserwuj płomień reagujący na przechylenie. Wypróbuj Wulkaniczną skorupę, Żywy mech, Złotego smoka i inne motywy."],

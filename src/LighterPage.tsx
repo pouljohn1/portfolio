@@ -36,11 +36,10 @@ export function LighterPage({ locale }: { locale: Locale }) {
 
       <section className="mt-20 grid items-center gap-10 rounded-3xl border border-border bg-secondary/30 p-6 sm:p-10 md:mt-24 md:grid-cols-[0.85fr_1.15fr] md:gap-14" aria-labelledby="lighter-preview">
         <figure className="mx-auto w-full max-w-[280px]">
-          <video key={locale} controls playsInline preload="none" poster={`/images/lighter/preview-${locale}.webp`} width="720" height="1560" aria-label={t.videoLabel} aria-describedby="lighter-preview-caption" className="block h-auto w-full rounded-2xl bg-black">
+          <video key={locale} controls playsInline preload="none" poster={`/images/lighter/preview-${locale}.webp`} width="720" height="1560" aria-label={t.videoLabel} className="block h-auto w-full rounded-2xl bg-black">
             <source src={`/videos/lighter/preview-${locale}.mp4`} type="video/mp4" />
             <a href={`/videos/lighter/preview-${locale}.mp4`}>{t.videoFallback}</a>
           </video>
-          <figcaption id="lighter-preview-caption" className="mt-3 text-center text-xs text-muted-foreground">{t.videoCaption}</figcaption>
         </figure>
         <div>
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">{t.videoEyebrow}</p>
