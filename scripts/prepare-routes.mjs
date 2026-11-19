@@ -68,8 +68,8 @@ const pages = [
       en: "Family Showdown - a family guessing game for iPhone",
     },
     description: {
-      pl: "Familijna Gra — quiz po polsku na iPhone’a. Zgaduj popularne odpowiedzi, graj online lub z botem i zdobywaj punkty dla swojej rodziny.",
-      en: "Family Showdown - the English edition of the family guessing game for iPhone. Guess popular answers, play Solo chapters, duel online or against a bot, and win points for your family.",
+      pl: "Familijna Gra — quiz na iPhone’a: pytanie dnia, wyzwania Solo, pojedynki online i gra z botem bez internetu. Zgaduj odpowiedzi i zdobywaj punkty.",
+      en: "Family Showdown - a family guessing game for iPhone with a Daily Question, Solo challenges, online duels and offline bot matches.",
     },
   },
   {

@@ -6,6 +6,7 @@ Statyczna strona `pjanecze.xyz`: portfolio autora oraz strony wsparcia, polityki
 
 - Vite + React + `react-router`, budowane do `dist/`.
 - Cała treść (en i pl) jest w `src/content.ts`. Routing stron w `src/App.tsx` (`currentPage`), osobne widoki np. `src/FamilyGamePage.tsx`.
+- Na stronie Familijnej Gry opisuj prezentowane funkcje jako obecne; nie dodawaj samodzielnie zapowiedzi „wkrótce w wersji X”.
 - Obrazy w `public/images/<projekt>/`, pliki statyczne z korzenia domeny w `public/`.
 - `scripts/prepare-routes.mjs` kopiuje `index.html` do katalogu każdej trasy i wstrzykuje metadane SEO dla `familijna-gra`. Nowa trasa wymaga wpisu w tym skrypcie i w `currentPage`.
 

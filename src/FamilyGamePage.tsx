@@ -6,8 +6,7 @@ import { content, type Locale } from "./content"
 export function FamilyGamePage({ locale }: { locale: Locale }) {
   const t = content[locale].familyGame
   const supportPath = `/${locale}/familijna-gra-support`
-  // The English edition ships with app 1.1, so its links go to the 1.1 policy page.
-  const policyPath = locale === "en" ? `${supportPath}/1.1` : supportPath
+  const policyPath = `${supportPath}/1.3`
 
   return (
     <div className="family-game mx-auto max-w-5xl px-6 pb-12 pt-10 md:pt-16">
@@ -58,7 +57,7 @@ export function FamilyGamePage({ locale }: { locale: Locale }) {
         <h2 id="family-gallery" className="mb-3 text-2xl font-light tracking-tight">{t.galleryTitle}</h2>
         <p className="mb-8 max-w-xl text-sm leading-relaxed text-muted-foreground">{t.galleryDescription}</p>
         {t.details.length ? (
-          <dl className="grid gap-7 sm:grid-cols-2 sm:gap-x-10">
+          <dl className="mb-10 grid gap-7 sm:grid-cols-2 sm:gap-x-10">
             {t.details.map(([title, description]) => (
               <div key={title} className="border-l border-border pl-5">
                 <dt className="mb-2 text-base font-medium">{title}</dt>
