@@ -299,7 +299,7 @@ export const content = {
       contactTitle: "Contact",
       contactBeforeEmail: "If you have a problem with the game or a question about your data, email ",
       privacyTitle: "Privacy Policy",
-      updated: "Last updated: November 18, 2026",
+      updated: "Last updated: November 20, 2026",
       appliesTo: "Applies to app version",
       ownerTitle: "Who is responsible for the app",
       ownerBeforeEmail: "Family Showdown (Familijna Gra in Poland) is operated by Paweł Janeczek. For privacy questions, contact me at ",
@@ -331,7 +331,7 @@ export const content = {
         "To improve questions and the list of accepted answers, the app sends anonymous, aggregated answer statistics to our service run by Convex, Inc. in the United States: for each question, the number of attempts and answers, which answer cards were found, and the text of wrong answers in normalized form (lowercase, without diacritics or punctuation). Only guesses made on your device are counted: in Solo, in the Daily Question and in Duels against the bot; in online Duels, the host's device reports the guesses of both players. The statistics contain no player, Game Center, iCloud, device or match identifier, and the service keeps only totals per question and per wrong answer, with the time each answer was last seen. Answers longer than 60 characters or containing five or more digits in a row are never sent. As with any online service, Convex processes the connection's IP address to deliver it. Transfers to the United States are covered by the EU Standard Contractual Clauses in Convex's data processing terms.",
       dailyTitle: "Daily Question",
       daily:
-        "The day's boards are downloaded from our content server, like question packs; the request contains no player data. Your daily results, streak and reminder settings stay on your device. If you turn on the reminder, the app schedules a local notification on your device and sends nothing to us. When you are signed in to Game Center, your best streak and your weekly Daily Question score are reported to Game Center leaderboards. If your family name is reserved through iCloud, the score also carries a short form of your family ID, and the name reservation stores your Game Center player identifier for this game (Apple assigns a different one in each game). This lets the leaderboards show your family name and avatar instead of your Game Center name; the Friends view also shows your Game Center name. Other players can see these entries.",
+        "The day's boards are downloaded from our content server, like question packs; the request contains no player data. Your daily results, streak and reminder settings stay on your device. If you turn on the reminder, the app schedules a local notification on your device and sends nothing to us. When you are signed in to Game Center, your best streak and your weekly Daily Question score are reported to Game Center leaderboards. If your family name is reserved through iCloud, the score also carries a short form of your family ID. This lets the leaderboards show your family name and avatar instead of your Game Center name; the Friends view also shows your Game Center name. Other players can see these entries.",
       // Policy for app version 1.3 at /familijna-gra-support/1.3/.
       policy13: {
         updated: "Last updated: November 12, 2026",
@@ -654,7 +654,7 @@ export const content = {
       contactTitle: "Kontakt",
       contactBeforeEmail: "Jeśli masz problem z grą lub pytanie dotyczące danych, napisz na ",
       privacyTitle: "Polityka prywatności",
-      updated: "Ostatnia aktualizacja: 18 listopada 2026 r.",
+      updated: "Ostatnia aktualizacja: 20 listopada 2026 r.",
       appliesTo: "Dotyczy wersji aplikacji",
       ownerTitle: "Kto odpowiada za aplikację",
       ownerBeforeEmail:
@@ -687,7 +687,7 @@ export const content = {
         "Aby poprawiać pytania i listę akceptowanych odpowiedzi, aplikacja wysyła anonimowe, zagregowane statystyki odpowiedzi do naszej usługi prowadzonej przez Convex, Inc. w Stanach Zjednoczonych: dla każdego pytania liczbę podejść i odpowiedzi, odkryte karty oraz treść błędnych odpowiedzi w znormalizowanej postaci (małe litery, bez polskich znaków i interpunkcji). Liczymy tylko strzały z Twojego urządzenia: w Solo, w pytaniu dnia i w pojedynkach z botem; w pojedynkach online urządzenie gospodarza przekazuje strzały obu graczy. Statystyki nie zawierają identyfikatora gracza, Game Center, iCloud, urządzenia ani meczu, a usługa przechowuje tylko sumy dla pytania i dla każdej błędnej odpowiedzi wraz z czasem jej ostatniego wystąpienia. Odpowiedzi dłuższe niż 60 znaków lub zawierające ciąg co najmniej pięciu cyfr nigdy nie są wysyłane. Jak każda usługa online, Convex przetwarza adres IP połączenia, aby je obsłużyć. Przekazywanie danych do Stanów Zjednoczonych zabezpieczają standardowe klauzule umowne UE w warunkach przetwarzania danych Convex.",
       dailyTitle: "Pytanie dnia",
       daily:
-        "Plansze na kolejne dni aplikacja pobiera z naszego serwera treści, tak jak paczki pytań; zapytanie nie zawiera danych gracza. Twoje wyniki, seria i ustawienia przypomnienia zostają na urządzeniu. Jeśli włączysz przypomnienie, aplikacja planuje lokalne powiadomienie na urządzeniu i nic do nas nie wysyła. Gdy jesteś zalogowany w Game Center, najdłuższa seria i tygodniowy wynik pytania dnia trafiają do rankingów Game Center. Jeśli masz nazwę rodziny zarezerwowaną przez iCloud, wynik zawiera też skróconą postać identyfikatora rodziny, a rezerwacja nazwy zapisuje Twój identyfikator gracza Game Center w tej grze (Apple nadaje inny w każdej grze). Dzięki temu rankingi pokazują nazwę i awatar rodziny zamiast nazwy Game Center; w widoku znajomych widać też nazwę Game Center. Inni gracze widzą te wpisy.",
+        "Plansze na kolejne dni aplikacja pobiera z naszego serwera treści, tak jak paczki pytań; zapytanie nie zawiera danych gracza. Twoje wyniki, seria i ustawienia przypomnienia zostają na urządzeniu. Jeśli włączysz przypomnienie, aplikacja planuje lokalne powiadomienie na urządzeniu i nic do nas nie wysyła. Gdy jesteś zalogowany w Game Center, najdłuższa seria i tygodniowy wynik pytania dnia trafiają do rankingów Game Center. Jeśli masz nazwę rodziny zarezerwowaną przez iCloud, wynik zawiera też skróconą postać identyfikatora rodziny. Dzięki temu rankingi pokazują nazwę i awatar rodziny zamiast nazwy Game Center; w widoku znajomych widać też nazwę Game Center. Inni gracze widzą te wpisy.",
       // Policy for app version 1.3 at /familijna-gra-support/1.3/.
       policy13: {
         updated: "Ostatnia aktualizacja: 12 listopada 2026 r.",
