@@ -299,7 +299,7 @@ export const content = {
       contactTitle: "Contact",
       contactBeforeEmail: "If you have a problem with the game or a question about your data, email ",
       privacyTitle: "Privacy Policy",
-      updated: "Last updated: November 20, 2026",
+      updated: "Last updated: November 24, 2026",
       appliesTo: "Applies to app version",
       ownerTitle: "Who is responsible for the app",
       ownerBeforeEmail: "Family Showdown (Familijna Gra in Poland) is operated by Paweł Janeczek. For privacy questions, contact me at ",
@@ -332,9 +332,31 @@ export const content = {
       dailyTitle: "Daily Question",
       daily:
         "The day's boards are downloaded from our content server, like question packs; the request contains no player data. Your daily results, streak and reminder settings stay on your device. If you turn on the reminder, the app schedules a local notification on your device and sends nothing to us. When you are signed in to Game Center, your best streak and your weekly Daily Question score are reported to Game Center leaderboards. If your family name is reserved through iCloud, the score also carries a short form of your family ID. This lets the leaderboards show your family name and avatar instead of your Game Center name; the Friends view also shows your Game Center name. Other players can see these entries.",
+      tvTitle: "Playing on a TV (Google Cast)",
+      tv:
+        "When you choose to play on a TV, the app asks for local network access to find Google Cast devices on the same Wi-Fi network and connect to the TV you select. You can change this permission in iPhone Settings. The iPhone sends the state of the game board to the selected TV, including team names and avatars, questions, revealed answers, scores, and round progress. The receiver app on the TV uses this information during the session to display the game.",
+      tvAirPlay:
+        "If you choose an Apple TV or another AirPlay device instead, the app draws the same game board on your iPhone and iOS sends it to that device through Apple's AirPlay. No receiver app is loaded on the TV and no provider other than Apple is involved.",
+      tvProviders:
+        "The Google Cast SDK may send a device identifier, diagnostic and performance data, and approximate location information to Google to operate, measure, and improve Cast reliability. Google also says it may collect information about the use of Cast features when the SDK interface is used. The TV loads the receiver app and its assets through Cloudflare and the Google Cast library from Google. These providers handle technical connection data, such as the device’s IP address, when serving these resources. Your Cast-enabled device may have its own settings for sharing usage data and crash reports.",
+      tvLinksBefore: "Read more in the ",
+      tvGoogleLink: "Google Privacy Policy",
+      tvCastDeviceLink: "Cast device privacy settings",
+      tvCloudflareLink: "Cloudflare Privacy Policy",
+      tvLinksAnd: " and the ",
+      tvGoogleUrl: "https://policies.google.com/privacy?hl=en",
+      tvCastDeviceUrl: "https://support.google.com/googlecast/answer/6076570?hl=en",
+      tvAnalytics:
+        "Subject to the settings described in “Analytics and diagnostics”, the app may record TV connection, match start and finish, and free match usage events in Firebase. If you use Game Center, the app may sync achievement progress for TV matches with Game Center.",
+      // Policy for app version 1.5 at /familijna-gra-support/1.5/: the 1.6 text without playing on a TV.
+      policy15: {
+        updated: "Last updated: November 20, 2026",
+        tv: "",
+      },
       // Policy for app version 1.3 at /familijna-gra-support/1.3/.
       policy13: {
         updated: "Last updated: November 12, 2026",
+        tv: "",
         ...familyGameData13En,
         daily:
           "The day's boards are downloaded from our content server, like question packs; the request contains no player data. Your daily results, streak and reminder settings stay on your device. If you turn on the reminder, the app schedules a local notification on your device and sends nothing to us. When you are signed in to Game Center, your best streak and your weekly Daily Question score are reported to Game Center leaderboards, where other players can see them with your Game Center name.",
@@ -345,6 +367,7 @@ export const content = {
         updated: "Last updated: November 9, 2026",
         stats: "",
         daily: "",
+        tv: "",
       },
       // Policy for app versions 1.1 and 1.1.1 at /familijna-gra-support/1.1/.
       policy11: {
@@ -353,6 +376,7 @@ export const content = {
         live: "",
         stats: "",
         daily: "",
+        tv: "",
       },
       // Policy shown at the unversioned URL linked from App Store version 1.0. Empty sections are hidden.
       policy10: {
@@ -369,6 +393,7 @@ export const content = {
         live: "",
         stats: "",
         daily: "",
+        tv: "",
       },
       storageTitle: "Storage and your choices",
       storageBeforeEmail:
@@ -654,7 +679,7 @@ export const content = {
       contactTitle: "Kontakt",
       contactBeforeEmail: "Jeśli masz problem z grą lub pytanie dotyczące danych, napisz na ",
       privacyTitle: "Polityka prywatności",
-      updated: "Ostatnia aktualizacja: 20 listopada 2026 r.",
+      updated: "Ostatnia aktualizacja: 24 listopada 2026 r.",
       appliesTo: "Dotyczy wersji aplikacji",
       ownerTitle: "Kto odpowiada za aplikację",
       ownerBeforeEmail:
@@ -688,9 +713,31 @@ export const content = {
       dailyTitle: "Pytanie dnia",
       daily:
         "Plansze na kolejne dni aplikacja pobiera z naszego serwera treści, tak jak paczki pytań; zapytanie nie zawiera danych gracza. Twoje wyniki, seria i ustawienia przypomnienia zostają na urządzeniu. Jeśli włączysz przypomnienie, aplikacja planuje lokalne powiadomienie na urządzeniu i nic do nas nie wysyła. Gdy jesteś zalogowany w Game Center, najdłuższa seria i tygodniowy wynik pytania dnia trafiają do rankingów Game Center. Jeśli masz nazwę rodziny zarezerwowaną przez iCloud, wynik zawiera też skróconą postać identyfikatora rodziny. Dzięki temu rankingi pokazują nazwę i awatar rodziny zamiast nazwy Game Center; w widoku znajomych widać też nazwę Game Center. Inni gracze widzą te wpisy.",
+      tvTitle: "Gra na telewizorze (Google Cast)",
+      tv:
+        "Gdy wybierzesz grę na telewizorze, aplikacja prosi o dostęp do sieci lokalnej, aby znaleźć urządzenie Google Cast w tej samej sieci Wi-Fi i połączyć się z wybranym telewizorem. Dostęp możesz zmienić w ustawieniach iPhone’a. Telefon przesyła do wybranego telewizora stan planszy, w tym nazwy i awatary drużyn, pytania, odsłonięte odpowiedzi, wyniki oraz przebieg rundy. Aplikacja odbiornika na telewizorze używa tych danych podczas sesji, aby wyświetlać grę.",
+      tvAirPlay:
+        "Jeśli zamiast tego wybierzesz Apple TV lub inne urządzenie AirPlay, aplikacja rysuje tę samą planszę na iPhonie, a iOS przesyła ją do tego urządzenia przez funkcję AirPlay firmy Apple. Na telewizorze nie jest wtedy pobierana aplikacja odbiornika i nie uczestniczy w tym żaden dostawca poza Apple.",
+      tvProviders:
+        "Google Cast SDK może przesyłać do Google identyfikator urządzenia oraz dane diagnostyczne, wydajnościowe i informacje o przybliżonej lokalizacji w celu obsługi, pomiaru i poprawy niezawodności Cast. Google deklaruje też możliwość zbierania informacji o korzystaniu z funkcji Cast, kiedy używany jest interfejs SDK. Telewizor pobiera aplikację odbiornika i jej zasoby z infrastruktury Cloudflare oraz bibliotekę Google Cast od Google. Podczas pobierania dostawcy obsługują techniczne dane połączenia, takie jak adres IP urządzenia. Urządzenie obsługujące Cast może mieć własne ustawienia udostępniania danych o użyciu i awariach.",
+      tvLinksBefore: "Więcej znajdziesz w dokumentach: ",
+      tvGoogleLink: "Polityka prywatności Google",
+      tvCastDeviceLink: "Prywatność urządzeń Cast",
+      tvCloudflareLink: "Polityka prywatności Cloudflare",
+      tvLinksAnd: " i ",
+      tvGoogleUrl: "https://policies.google.com/privacy?hl=pl",
+      tvCastDeviceUrl: "https://support.google.com/googlecast/answer/6076570?hl=pl",
+      tvAnalytics:
+        "Zgodnie z ustawieniami opisanymi w części „Analityka i diagnostyka” aplikacja może rejestrować w Firebase zdarzenia połączenia z telewizorem, rozpoczęcia i zakończenia meczu oraz wykorzystania darmowej gry. Jeśli korzystasz z Game Center, aplikacja może synchronizować z nim postęp osiągnięć za mecze na telewizorze.",
+      // Policy for app version 1.5 at /familijna-gra-support/1.5/: the 1.6 text without playing on a TV.
+      policy15: {
+        updated: "Ostatnia aktualizacja: 20 listopada 2026 r.",
+        tv: "",
+      },
       // Policy for app version 1.3 at /familijna-gra-support/1.3/.
       policy13: {
         updated: "Ostatnia aktualizacja: 12 listopada 2026 r.",
+        tv: "",
         ...familyGameData13Pl,
         daily:
           "Plansze na kolejne dni aplikacja pobiera z naszego serwera treści, tak jak paczki pytań; zapytanie nie zawiera danych gracza. Twoje wyniki, seria i ustawienia przypomnienia zostają na urządzeniu. Jeśli włączysz przypomnienie, aplikacja planuje lokalne powiadomienie na urządzeniu i nic do nas nie wysyła. Gdy jesteś zalogowany w Game Center, najdłuższa seria i tygodniowy wynik pytania dnia trafiają do rankingów Game Center, gdzie inni gracze widzą je z Twoją nazwą Game Center.",
@@ -701,6 +748,7 @@ export const content = {
         updated: "Ostatnia aktualizacja: 9 listopada 2026 r.",
         stats: "",
         daily: "",
+        tv: "",
       },
       // Policy for app versions 1.1 and 1.1.1 at /familijna-gra-support/1.1/.
       policy11: {
@@ -709,6 +757,7 @@ export const content = {
         live: "",
         stats: "",
         daily: "",
+        tv: "",
       },
       // Policy shown at the unversioned URL linked from App Store version 1.0. Empty sections are hidden.
       policy10: {
@@ -722,6 +771,7 @@ export const content = {
         live: "",
         stats: "",
         daily: "",
+        tv: "",
       },
       storageTitle: "Przechowywanie i Twoje wybory",
       storageBeforeEmail:

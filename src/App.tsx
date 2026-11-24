@@ -24,8 +24,9 @@ function currentPage(pathname: string): Page {
 
 // The unversioned support URL keeps the 1.0 policy linked from the released app; newer policies get their own URL.
 // 1.1 also covers app version 1.1.1; 1.2 adds the "Someone's waiting" signal (Convex); 1.3 adds answer statistics and the Daily Question;
-// 1.5 adds the family avatar, the public family ID and the family link on the Daily Question leaderboards.
-const familyPolicyVersions = ["1.1", "1.2", "1.3", "1.5"] as const
+// 1.5 adds the family avatar, the public family ID and the family link on the Daily Question leaderboards;
+// 1.6 adds playing on a TV (Google Cast and AirPlay).
+const familyPolicyVersions = ["1.1", "1.2", "1.3", "1.5", "1.6"] as const
 type FamilyPolicyVersion = "1.0" | (typeof familyPolicyVersions)[number]
 
 function familyPolicyVersion(pathname: string): FamilyPolicyVersion {
@@ -327,6 +328,10 @@ function GooglePrivacyLink({ children }: { children: ReactNode }) {
   return <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer" className="text-foreground underline underline-offset-4 hover:no-underline">{children}</a>
 }
 
+function ExternalTextLink({ href, children }: { href: string; children: ReactNode }) {
+  return <a href={href} target="_blank" rel="noopener noreferrer" className="text-foreground underline underline-offset-4 hover:no-underline">{children}</a>
+}
+
 function GoogleAdsPrivacyLink({ children }: { children: ReactNode }) {
   return <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer" className="text-foreground underline underline-offset-4 hover:no-underline">{children}</a>
 }
@@ -371,7 +376,7 @@ function LighterSupportPage({ locale }: { locale: Locale }) {
 
 function FamilySupportPage({ locale, version }: { locale: Locale; version: FamilyPolicyVersion }) {
   const family = content[locale].family
-  const overrides = version === "1.0" ? family.policy10 : version === "1.1" ? family.policy11 : version === "1.2" ? family.policy12 : version === "1.3" ? family.policy13 : {}
+  const overrides = version === "1.0" ? family.policy10 : version === "1.1" ? family.policy11 : version === "1.2" ? family.policy12 : version === "1.3" ? family.policy13 : version === "1.5" ? family.policy15 : {}
   const t = { ...family, ...overrides }
   return (
     <SupportLayout locale={locale}>
@@ -397,6 +402,22 @@ function FamilySupportPage({ locale, version }: { locale: Locale; version: Famil
             <p className="mt-3">{t.gameDataTwo}</p>
             {t.gameDataThree && <p className="mt-3">{t.gameDataThree}</p>}
           </div>
+          {t.tv && (
+            <div>
+              <h3 className="mb-3 text-lg font-light text-foreground">{t.tvTitle}</h3>
+              <p>{t.tv}</p>
+              <p className="mt-3">{t.tvAirPlay}</p>
+              <p className="mt-3">{t.tvProviders}</p>
+              <p className="mt-3">
+                {t.tvLinksBefore}
+                <ExternalTextLink href={t.tvGoogleUrl}>{t.tvGoogleLink}</ExternalTextLink>,{" "}
+                <ExternalTextLink href={t.tvCastDeviceUrl}>{t.tvCastDeviceLink}</ExternalTextLink>
+                {t.tvLinksAnd}
+                <ExternalTextLink href="https://www.cloudflare.com/privacypolicy/">{t.tvCloudflareLink}</ExternalTextLink>.
+              </p>
+              <p className="mt-3">{t.tvAnalytics}</p>
+            </div>
+          )}
           <div>
             <h3 className="mb-3 text-lg font-light text-foreground">{t.analyticsTitle}</h3>
             <p>{t.analytics}</p>

@@ -6,7 +6,8 @@ import { content, type Locale } from "./content"
 export function FamilyGamePage({ locale }: { locale: Locale }) {
   const t = content[locale].familyGame
   const supportPath = `/${locale}/familijna-gra-support`
-  const policyPath = `${supportPath}/1.3`
+  // The page links to the policy of the App Store version (1.5.0); switch to 1.6 when app version 1.6 is released.
+  const policyPath = `${supportPath}/1.5`
 
   return (
     <div className="family-game mx-auto max-w-5xl px-6 pb-12 pt-10 md:pt-16">
